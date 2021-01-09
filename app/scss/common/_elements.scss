@@ -1,245 +1,37 @@
-#realme-7-teasing {
-  // Custom Input
-  .custom-input {
-    position: relative;
-    height: 45px;
-    width: 150px;
-
-    .input-decor {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      .part {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-
-        svg {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-
-          path {
-            stroke: $white;
-            fill: none;
-          }
+#realme-air-buds-pro-page {
+    padding-top: 140px;
+    .img-holder {
+        img,
+        picture {
+            display: block;
+            width: 100%;
         }
-
-        &.top-left {
-          top: 0;
-          left: 0;
+        &.bg-mode {
+            overflow: hidden;
+            img,
+            picture {
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
         }
-
-        &.bottom-left {
-          bottom: 0;
-          left: 0;
-        }
-
-        &.top-right {
-          top: 0;
-          right: 0;
-        }
-
-        &.bottom-right {
-          bottom: 0;
-          right: 0;
-        }
-      }
     }
-
-    .input-holder {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-
-      input {
-        background-color: transparent;
-        outline: none;
-        text-align: center;
-        border: none;
-        height: 45px;
-        line-height: 45px;
-        display: block;
-        width: 100%;
-        color: $white;
-        font-size: 16px;
-
-        &::-webkit-input-placeholder {
-          /* Edge */
-          color: $white;
+    .section {
+        position: relative;
+        .mold {
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            img,
+            picture {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
         }
-
-        &:-ms-input-placeholder {
-          /* Internet Explorer 10-11 */
-          color: $white;
-        }
-
-        &::placeholder {
-          color: $white;
-        }
-      }
     }
-  }
-
-  // Custom Button
-  .custom-btn {
-    background-color: transparent;
-    outline: none;
-    border: 1px solid $blue;
-    height: 52px;
-    padding: 4px 6px;
-    border-top-left-radius: 9px 25px;
-    border-bottom-left-radius: 9px 25px;
-    border-top-right-radius: 9px 25px;
-    border-bottom-right-radius: 9px 25px;
-    cursor: pointer;
-
-    .context {
-      color: $white;
-      font-size: 16px;
-      line-height: 42px;
-      padding: 0 30px;
-      width: 100%;
-      height: 100%;
-      background-color: $blue;
-      border-top-left-radius: 8px 23px;
-      border-bottom-left-radius: 8px 23px;
-      border-top-right-radius: 8px 23px;
-      border-bottom-right-radius: 8px 23px;
-      display: block;
-      transition: all ease-in 100ms;
-      font-family: "Agula", Arial, Helvetica, sans-serif;
-
-      &:hover {
-        transition: all ease-out 150ms;
-        box-shadow: 1px 1px 40px rgba(36, 89, 183, 0.7);
-      }
-
-      &.sm {
-        font-size: 14px;
-      }
-    }
-
-    &.question-btn {
-      .context {
-        border: 1px solid $blue;
-        background-color: transparent;
-        // color: $blue;
-        color: $white;
-        box-shadow: none;
-      }
-
-      &:hover,
-      &.active {
-        .context {
-          transition: all ease-out 150ms;
-          background-color: $blue;
-          color: $white;
-          box-shadow: 1px 1px 40px rgba(36, 89, 183, 0.7);
-        }
-      }
-    }
-
-    &.transparent {
-      .context {
-        border: 1px solid $blue;
-        background-color: transparent;
-        // color: $blue;
-        color: $white;
-        box-shadow: none;
-      }
-
-      &:hover {
-        .context {
-          transition: all ease-out 150ms;
-          background-color: $blue;
-          color: $white;
-          box-shadow: 1px 1px 40px rgba(36, 89, 183, 0.7);
-        }
-      }
-    }
-
-    &.black {
-      border-color: #1e1515;
-
-      .context {
-        background-color: #1e1515;
-      }
-    }
-
-    &.light-blue {
-      border-color: $light-blue;
-
-      .context {
-        background-color: $light-blue;
-      }
-
-      &.transparent {
-        .context {
-          border-color: $light-blue;
-          background-color: transparent;
-        }
-
-        &:hover {
-          .context {
-            background-color: $light-blue;
-          }
-        }
-      }
-    }
-  }
-
-  // Less than 1440px
-  @media #{$information-sm-screen} {
-    // Custom Input
-    .custom-input {
-      height: 42px;
-
-      .input-decor {
-        .part {
-          width: 9px;
-          height: 9px;
-        }
-      }
-
-      .input-holder {
-        input {
-          height: 42px;
-          line-height: 42px;
-          font-size: 15px;
-        }
-      }
-    }
-
-    // Custom Button
-    .custom-btn {
-      height: 50px;
-      padding: 3px 5px;
-      border-top-left-radius: 9px 23px;
-      border-bottom-left-radius: 9px 23px;
-      border-top-right-radius: 9px 23px;
-      border-bottom-right-radius: 9px 23px;
-
-      .context {
-        font-size: 15px;
-        line-height: 41px;
-        padding: 0 28px;
-        border-top-left-radius: 8px 22px;
-        border-bottom-left-radius: 8px 22px;
-        border-top-right-radius: 8px 22px;
-        border-bottom-right-radius: 8px 22px;
-
-        &.sm {
-          font-size: 14px;
-        }
-      }
-    }
-  }
 }

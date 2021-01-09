@@ -93,7 +93,7 @@ export default class Home {
                 // use the web animation API
                 console.log("in: ", $(el).attr("id"));
                 let elementID = $(el).attr("id");
-                realme7TeasingListener.emit(`${elementID}-anim`);
+                realmeAirBudsProListener.emit(`${elementID}-anim`);
             },
             threshold: 0.225,
         });
