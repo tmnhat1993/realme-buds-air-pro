@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700,800&display=swap");
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../font/SVN-Gilroy Regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Agula";
+  src: url("../font/SVN-Aguda Regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Agula";
+  src: url("../font/SVN-Aguda Bold.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Gemunu";
+  src: url("../font/gemunu-libre.semibold.otf");
+  font-weight: 600;
+}
+
+/* === TYPOGRAPHY === */
+#realme-7-teasing {
+  * {
+    font-family: "Gilroy", Arial, Helvetica, sans-serif;
+  }
+
+  .agula,
+  .agula * {
+    font-family: "Agula", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+  }
+
+  .gilroy,
+  .gilroy * {
+    font-family: "Gilroy", Arial, Helvetica, sans-serif;
+  }
+
+  .gemunu,
+  .gemunu * {
+    font-family: "Gemunu", "Agula", Helvetica, sans-serif;
+    font-weight: 600;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.white-txt,
+.txt-white {
+  color: $white !important;
+
+  * {
+    color: $white !important;
+  }
+}
+
+.blue-txt,
+.txt-blue,
+.text-blue,
+.blue-text {
+  color: $blue;
+
+  * {
+    color: $blue;
+  }
+}
+
+.light-blue-txt,
+.txt-light-blue,
+.text-light-blue,
+.light-blue-text {
+  color: $light-blue;
+
+  * {
+    color: $light-blue;
+  }
+}
+
+.txt-center,
+.text-centeer {
+  text-align: center;
+}

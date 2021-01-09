@@ -1,0 +1,1027 @@
+.container {
+  max-width: 100%;
+  margin: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 16;
+
+  // Original State
+  visibility: hidden;
+
+  // Modal Overlay
+  .modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(black, 0.5);
+    z-index: 0;
+
+    // Original State
+    transition: all ease-in 100ms 250ms;
+    opacity: 0;
+  }
+
+  /* === Common Styling for Modal Dialog === */
+  .modal-dialog {
+    position: relative;
+    z-index: 2;
+    padding: 40px 0;
+
+    // Origina State
+    transition: all ease-out 220ms;
+    opacity: 0;
+    transform: translateY(30px);
+
+    // Close Modal Button
+    .close-modal-btn {
+      position: absolute;
+      color: $white;
+      font-size: 30px;
+      top: 5px;
+      right: 20px;
+      transition: all ease-in 120ms;
+      cursor: pointer;
+
+      &:hover {
+        color: $light-blue;
+        transition: all ease-out 150ms;
+      }
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      z-index: 3;
+    }
+
+    .modal-bg-holder {
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      .bg-holder-top,
+      .bg-holder-bottom {
+        height: 40px;
+        width: calc(100% - 40px);
+        background: rgba(36, 89, 183, 0.97);
+        position: absolute;
+
+        .triangle {
+          position: absolute;
+
+          svg {
+            display: block;
+            width: 40px;
+            height: 40px;
+            fill: rgba(36, 89, 183, 0.97);
+          }
+        }
+      }
+
+      .bg-holder-top {
+        top: 0;
+        right: 0;
+
+        .triangle {
+          top: 0;
+          left: -40px;
+        }
+      }
+
+      .bg-holder-bottom {
+        bottom: 0;
+        left: 0;
+
+        .triangle {
+          top: 0;
+          right: -40px;
+        }
+      }
+    }
+
+    .modal-content {
+      background: rgba(36, 89, 183, 0.97);
+      position: relative;
+      z-index: 2;
+      color: $white;
+    }
+
+    // PRIZE LISTING MODAL STYLING
+    &#prize-list-modal-dialog {
+      width: 556px;
+
+      .modal-content {
+        max-height: 80vh;
+        overflow-y: auto;
+
+        .modal-title {
+          font-size: 32px;
+          line-height: 1.1;
+          font-family: "Agula", Arial, Helvetica, sans-serif;
+          margin-bottom: 20px;
+        }
+
+        .prize-listing {
+          padding: 0 18px;
+
+          .prize-item {
+            position: relative;
+            margin-bottom: 10px;
+
+            .img-bg {
+              svg {
+                display: block;
+                width: 100%;
+                height: auto;
+              }
+            }
+
+            .prize-img {
+              position: absolute;
+              width: 33.33%;
+              height: 100%;
+              top: 0;
+              left: 0;
+            }
+
+            .prize-content {
+              position: absolute;
+              width: 66.66%;
+              height: 100%;
+              top: 0;
+              left: 30%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding-right: 15px;
+
+              .prize-label {
+                font-weight: 600;
+                font-size: 16px;
+                margin-bottom: 3px;
+              }
+
+              .prize-name {
+                font-weight: 600;
+                margin-bottom: 3px;
+              }
+
+              .prize-detail {
+                font-size: 14px;
+                font-family: "Gilroy", Arial, Helvetica, sans-serif;
+                text-align: justify;
+                color: #dadada;
+              }
+            }
+
+            .prize-img {
+              .prize-highlight,
+              .prize-image {
+                position: absolute;
+              }
+
+              .prize-highlight {
+                width: 80%;
+                bottom: 5%;
+                left: 10%;
+
+                img {
+                  width: 100%;
+                  display: block;
+                }
+              }
+
+              .prize-image {
+                z-index: 2;
+
+                img {
+                  width: 100%;
+                  display: block;
+                }
+
+                &#prize-rm-7-pro-image {
+                  width: 56%;
+                  left: 22%;
+                  top: -4%;
+                }
+
+                &#prize-rm-7-image {
+                  width: 56%;
+                  left: 22%;
+                  top: -4%;
+                }
+
+                &#prize-rm-buds-image {
+                  width: 38%;
+                  left: 30%;
+                  top: 22%;
+                }
+              }
+            }
+          }
+        }
+
+        .prize-bottom {
+          margin-top: 20px;
+          font-size: 14px;
+          padding: 0 30px;
+          font-family: "Gilroy", Arial, Helvetica, sans-serif;
+          color: #dadada;
+        }
+      }
+    }
+
+    // AUTHENTICATION MODAL DIALOG
+    &#authentication-modal-dialog {
+      width: 450px;
+
+      .modal-content {
+        .welcome-title {
+          font-size: 24px;
+          line-height: 1.5;
+          margin-bottom: 20px;
+
+          // Original State
+          display: none;
+
+          &.sm {
+            font-size: 18px;
+            line-height: 1.8;
+          }
+
+          &.active {
+            display: block;
+          }
+        }
+
+        .form-holder {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          // Original State
+          display: none;
+
+          .custom-input {
+            margin-bottom: 15px;
+            width: 268px;
+
+            .input-holder {
+              input {
+                background: rgba(255, 255, 255, 0.27);
+              }
+            }
+          }
+
+          .cta-holder {
+            margin-top: 17px;
+
+            .feedback {
+              margin-bottom: 8px;
+              font-size: 14px;
+              font-weight: 600;
+              color: #ff5522;
+              white-space: nowrap;
+              text-align: center;
+
+              // original state
+              display: none;
+            }
+
+            .custom-btn {
+              width: 268px;
+            }
+          }
+
+          .form-bottom {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+            color: $light-gray;
+
+            .switch-form {
+              cursor: pointer;
+              font-weight: 600;
+              color: $light-blue;
+              transition: all ease-out 100ms;
+
+              &:hover {
+                color: $white;
+                transition: all ease-out 150ms;
+              }
+            }
+          }
+
+          &.active {
+            display: flex;
+          }
+        }
+
+        .login-success-holder {
+          text-align: center;
+          padding: 10px 0;
+
+          // Original State
+          display: none;
+
+          .custom-btn {
+            width: 268px;
+          }
+
+          &.active {
+            display: block;
+          }
+        }
+      }
+    }
+
+    // GAME RULE MODAL DIALOG
+    &#game-rule-modal-dialog {
+      width: 1032px;
+
+      .modal-content {
+        max-height: 75vh;
+        overflow-y: auto;
+        padding: 0 60px;
+
+        .game-rule-layout {
+          display: flex;
+
+          .game-rule-modal-title {
+            display: inline-block;
+            font-size: 24px;
+            font-family: "Agula", Arial, Helvetica, sans-serif;
+            border-bottom: 2px solid $white;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-left: 48px;
+          }
+
+          .gamerule-how-to-play {
+            flex-basis: 45%;
+            width: 45%;
+            flex-shrink: 0;
+
+            .how-to-lay-listing {
+              .how-to-play-item {
+                position: relative;
+                display: flex;
+                padding-right: 48px;
+                margin-bottom: 22px;
+
+                .how-to-play-no {
+                  width: 48px;
+                  flex-basis: 48px;
+                  flex-shrink: 0;
+                  font-family: "Agula", Arial, Helvetica, sans-serif;
+                  font-weight: 600;
+                }
+
+                .how-to-play-context {
+                  font-family: "Gilroy", Arial, Helvetica, sans-serif;
+                  font-size: 14px;
+                  line-height: 2;
+                }
+              }
+            }
+          }
+
+          .gamerule-policies {
+            flex-basis: 55%;
+            width: 55%;
+            flex-shrink: 0;
+
+            .policies-listing {
+              .policies-item {
+                padding-left: 48px;
+                font-size: 14px;
+                line-height: 1.65;
+                margin-bottom: 10px;
+                position: relative;
+
+                .triangle {
+                  left: 10px;
+                  top: 3px;
+                  position: absolute;
+                }
+
+                .policies-item-title {
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // INFORMATION MODAL DIALOG
+    &#information-modal-dialog {
+      .modal-content {
+        text-align: center;
+        width: 480px;
+        max-width: 100%;
+        padding: 20px 30px;
+        font-size: 22px;
+
+        @media #{$information-phone} {
+          font-size: 18px;
+        }
+
+        @media #{$information-sm-phone} {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &.active {
+    visibility: visible;
+
+    .modal-overlay {
+      opacity: 1;
+      transition: all ease-in 200ms;
+    }
+
+    .modal-dialog {
+      transition: all ease-out 300ms 100ms;
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+
+  @media #{$information-tablet} {
+    /* === Common Styling for Modal Dialog === */
+    .modal-dialog {
+      max-width: 90%;
+      padding: 40px 0;
+
+      // Close Modal Button
+      .close-modal-btn {
+        font-size: 36px;
+        top: 5px;
+        right: 20px;
+      }
+
+      .modal-bg-holder {
+        .bg-holder-top,
+        .bg-holder-bottom {
+          height: 40px;
+          width: calc(100% - 40px);
+
+          .triangle {
+            svg {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      // PRIZE LISTING MODAL STYLING
+      &#prize-list-modal-dialog {
+        width: 480px;
+
+        .modal-content {
+          max-height: 80vh;
+
+          .modal-title {
+            font-size: 24px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+          }
+
+          .prize-listing {
+            padding: 0 15px;
+
+            .prize-item {
+              margin-bottom: 8px;
+
+              .prize-content {
+                padding-right: 12px;
+
+                .prize-label {
+                  font-size: 14px;
+                  margin-bottom: 3px;
+                }
+
+                .prize-name {
+                  font-size: 13px;
+                  margin-bottom: 3px;
+                }
+
+                .prize-detail {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+
+          .prize-bottom {
+            margin-top: 15px;
+            font-size: 13px;
+            padding: 0 20px;
+          }
+        }
+      }
+
+      // AUTHENTICATION MODAL DIALOG
+      &#authentication-modal-dialog {
+        width: 420px;
+
+        .modal-content {
+          .welcome-title {
+            font-size: 22px;
+            margin-bottom: 18px;
+
+            &.sm {
+              font-size: 16px;
+            }
+          }
+
+          .form-holder {
+            .custom-input {
+              margin-bottom: 13px;
+              width: 240px;
+            }
+
+            .cta-holder {
+              margin-top: 17px;
+              .custom-btn {
+                width: 240px;
+              }
+            }
+
+            .form-bottom {
+              margin-top: 15px;
+              font-size: 14px;
+            }
+          }
+
+          .login-success-holder {
+            padding: 10px 0;
+
+            // Original State
+            display: none;
+
+            .custom-btn {
+              width: 240px;
+            }
+          }
+        }
+      }
+
+      // GAME RULE MODAL DIALOG
+      &#game-rule-modal-dialog {
+        width: 480px;
+
+        .modal-content {
+          max-height: 65vh;
+          overflow-y: auto;
+          padding: 0 60px;
+
+          .game-rule-layout {
+            display: flex;
+            flex-wrap: wrap;
+
+            .game-rule-modal-title {
+              font-size: 24px;
+              padding-bottom: 10px;
+              margin-bottom: 20px;
+              margin-left: 0;
+            }
+
+            .gamerule-how-to-play {
+              flex-basis: 100%;
+              width: 100%;
+              flex-shrink: 0;
+
+              .how-to-lay-listing {
+                .how-to-play-item {
+                  padding-right: 0;
+                  margin-bottom: 12px;
+
+                  .how-to-play-no {
+                    width: 44px;
+                    flex-basis: 44px;
+                  }
+
+                  .how-to-play-context {
+                    font-size: 16px;
+                    line-height: 1.75;
+                  }
+                }
+              }
+            }
+
+            .gamerule-policies {
+              flex-basis: 100%;
+              width: 100%;
+
+              .policies-listing {
+                .policies-item {
+                  padding-left: 44px;
+                  font-size: 16px;
+                  margin-bottom: 12px;
+
+                  .triangle {
+                    left: 10px;
+                    top: 3px;
+                    position: absolute;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media #{$information-phone} {
+    /* === Common Styling for Modal Dialog === */
+    .modal-dialog {
+      max-width: 90%;
+      padding: 32px 0;
+
+      // Close Modal Button
+      .close-modal-btn {
+        font-size: 36px;
+        top: 5px;
+        right: 20px;
+      }
+
+      .modal-bg-holder {
+        .bg-holder-top,
+        .bg-holder-bottom {
+          height: 32px;
+          width: calc(100% - 32px);
+
+          .triangle {
+            svg {
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+
+        .bg-holder-top {
+          .triangle {
+            top: 0;
+            left: -32px;
+          }
+        }
+
+        .bg-holder-bottom {
+          .triangle {
+            top: 0;
+            right: -32px;
+          }
+        }
+      }
+
+      // PRIZE LISTING MODAL STYLING
+      &#prize-list-modal-dialog {
+        width: 480px;
+
+        .modal-content {
+          max-height: 80vh;
+
+          .modal-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+          }
+
+          .prize-listing {
+            padding: 0 10px;
+
+            .prize-item {
+              margin-bottom: 10px;
+
+              .prize-content {
+                padding-right: 0;
+
+                .prize-label {
+                  font-size: 12px;
+                  margin-bottom: 0;
+                }
+
+                .prize-name {
+                  font-size: 11px;
+                  margin-bottom: 0;
+                }
+
+                .prize-detail {
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+
+          .prize-bottom {
+            margin-top: 15px;
+            font-size: 12px;
+            padding: 0 20px;
+          }
+        }
+      }
+
+      // AUTHENTICATION MODAL DIALOG
+      &#authentication-modal-dialog {
+        width: 420px;
+
+        .modal-content {
+          .welcome-title {
+            font-size: 18px;
+            margin-bottom: 18px;
+
+            &.sm {
+              font-size: 15px;
+            }
+          }
+
+          .form-holder {
+            .custom-input {
+              margin-bottom: 12px;
+              width: 220px;
+            }
+
+            .cta-holder {
+              margin-top: 15px;
+              .custom-btn {
+                width: 220px;
+              }
+            }
+
+            .form-bottom {
+              margin-top: 15px;
+              font-size: 14px;
+            }
+          }
+
+          .login-success-holder {
+            padding: 10px 0;
+
+            // Original State
+            display: none;
+
+            .custom-btn {
+              width: 220px;
+            }
+          }
+        }
+      }
+
+      // GAME RULE MODAL DIALOG
+      &#game-rule-modal-dialog {
+        width: 480px;
+
+        .modal-content {
+          max-height: 70vh;
+          padding: 0 30px;
+
+          .game-rule-layout {
+            .game-rule-modal-title {
+              font-size: 20px;
+              padding-bottom: 8px;
+              margin-bottom: 15px;
+            }
+
+            .gamerule-how-to-play {
+              .how-to-lay-listing {
+                .how-to-play-item {
+                  margin-bottom: 10px;
+
+                  .how-to-play-no {
+                    width: 40px;
+                    flex-basis: 40px;
+                  }
+
+                  .how-to-play-context {
+                    font-size: 14px;
+                    line-height: 1.5;
+                  }
+                }
+              }
+            }
+
+            .gamerule-policies {
+              .policies-listing {
+                .policies-item {
+                  padding-left: 40px;
+                  font-size: 14px;
+                  margin-bottom: 10px;
+
+                  .triangle {
+                    left: 8px;
+                    top: 2px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media #{$information-sm-phone} {
+    /* === Common Styling for Modal Dialog === */
+    .modal-dialog {
+      max-width: 90%;
+      padding: 30px 0;
+
+      // Close Modal Button
+      .close-modal-btn {
+        font-size: 36px;
+        top: 5px;
+        right: 20px;
+      }
+
+      .modal-bg-holder {
+        .bg-holder-top,
+        .bg-holder-bottom {
+          height: 30px;
+          width: calc(100% - 30px);
+
+          .triangle {
+            svg {
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+
+        .bg-holder-top {
+          .triangle {
+            top: 0;
+            left: -30px;
+          }
+        }
+
+        .bg-holder-bottom {
+          .triangle {
+            top: 0;
+            right: -30px;
+          }
+        }
+      }
+
+      // PRIZE LISTING MODAL STYLING
+      &#prize-list-modal-dialog {
+        width: 480px;
+
+        .modal-content {
+          max-height: 80vh;
+
+          .modal-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+
+          .prize-listing {
+            padding: 0 10px;
+
+            .prize-item {
+              margin-bottom: 10px;
+
+              .prize-content {
+                padding-right: 0;
+
+                .prize-label {
+                  font-size: 11px;
+                }
+
+                .prize-name {
+                  font-size: 10px;
+                }
+
+                .prize-detail {
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+
+          .prize-bottom {
+            margin-top: 15px;
+            font-size: 11px;
+            padding: 0 15px;
+          }
+        }
+      }
+
+      // AUTHENTICATION MODAL DIALOG
+      &#authentication-modal-dialog {
+        width: 420px;
+
+        .modal-content {
+          .welcome-title {
+            font-size: 16px;
+            margin-bottom: 18px;
+
+            &.sm {
+              font-size: 13px;
+            }
+          }
+
+          .form-holder {
+            .custom-input {
+              margin-bottom: 12px;
+              width: 220px;
+            }
+
+            .cta-holder {
+              margin-top: 15px;
+              .custom-btn {
+                width: 220px;
+              }
+            }
+
+            .form-bottom {
+              margin-top: 15px;
+              font-size: 13px;
+            }
+          }
+
+          .login-success-holder {
+            padding: 10px 0;
+
+            // Original State
+            display: none;
+
+            .custom-btn {
+              width: 220px;
+            }
+          }
+        }
+      }
+
+      // GAME RULE MODAL DIALOG
+      &#game-rule-modal-dialog {
+        width: 480px;
+
+        .modal-content {
+          max-height: 70vh;
+          padding: 0 30px;
+
+          .game-rule-layout {
+            .game-rule-modal-title {
+              font-size: 20px;
+              padding-bottom: 8px;
+              margin-bottom: 15px;
+            }
+
+            .gamerule-how-to-play {
+              .how-to-lay-listing {
+                .how-to-play-item {
+                  margin-bottom: 10px;
+
+                  .how-to-play-no {
+                    width: 32px;
+                    flex-basis: 32px;
+                    font-size: 14px;
+                  }
+
+                  .how-to-play-context {
+                    font-size: 13px;
+                    line-height: 1.5;
+                  }
+                }
+              }
+            }
+
+            .gamerule-policies {
+              .policies-listing {
+                .policies-item {
+                  padding-left: 32px;
+                  font-size: 14px;
+                  margin-bottom: 10px;
+
+                  .triangle {
+                    left: 7px;
+                    top: 2px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

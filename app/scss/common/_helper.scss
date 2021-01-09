@@ -1,0 +1,25 @@
+#realme-7-teasing {
+  .img-bg-cover {
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.mb-hide {
+  @media #{$information-tablet} {
+    display: none !important;
+  }
+}
+
+.mb-show {
+  display: none;
+
+  @media #{$information-tablet} {
+    display: block !important;
+  }
+}
