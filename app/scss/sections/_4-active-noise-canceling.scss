@@ -1,0 +1,33 @@
+#realme-air-buds-pro-page {
+    // Active Noise Canceling Section
+    #section-actice-noise-canceling {
+        width: 100%;
+        // Main Conteent
+        .main-content {
+            position: absolute;
+            top: 11.5%;
+            left: 26.5%;
+        }
+        // Disclaimer-txt
+        .disclaimer-txt {
+            position: absolute;
+            font-size: 18px;
+            color: #717171;
+            top: 85%;
+            left: 26.5%;
+        }
+    }
+
+    /* === RESPONSIVE === */
+    // 1920px and bellow
+    @media #{$information-lg-screen} {
+        #section-actice-noise-canceling {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+
+            .disclaimer-txt {
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+#realme-air-buds-pro-page {
+    // TVC Section
+    #section-tvc {
+        background-color: #090909;
+        // Play Button
+        .play-btn-holder {
+            z-index: 3;
+            cursor: pointer;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(red, 0.25);
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+        }
+    }
+}
