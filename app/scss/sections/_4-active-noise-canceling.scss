@@ -30,4 +30,50 @@
             }
         }
     }
+    /* === MOBILE === */
+    @media #{$information-tablet} {
+        #section-actice-noise-canceling {
+            width: 100%;
+            margin-left: 0;
+
+            .main-content {
+                top: 13%;
+                left: 0;
+                width: 100%;
+                padding: 0 6.65vw;
+            }
+
+            .disclaimer-txt {
+                font-size: 24px;
+                width: 100%;
+                left: 0;
+                top: 89%;
+                padding: 0 6.65vw;
+            }
+        }
+    }
+    @media #{$information-phone} {
+        #section-actice-noise-canceling {
+            .main-content {
+                top: 13.5%;
+                left: 0;
+                width: 100%;
+            }
+            .disclaimer-txt {
+                font-size: 14px;
+            }
+        }
+    }
+    @media #{$information-sm-phone} {
+        #section-actice-noise-canceling {
+            .main-content {
+                top: 13.5%;
+                left: 0;
+                width: 100%;
+            }
+            .disclaimer-txt {
+                font-size: 12px;
+            }
+        }
+    }
 }

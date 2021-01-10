@@ -1,0 +1,30 @@
+#realme-air-buds-pro-page {
+    // TRANSPARENCY MODE SECTION
+    #section-transparency-mode {
+        .main-content {
+            position: absolute;
+            top: 34%;
+            left: 26.5%;
+        }
+    }
+    /* === RESPONSIVE === */
+    @media #{$information-lg-screen} {
+        #section-transparency-mode {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+        }
+    }
+    /* === MOBILE === */
+    @media #{$information-tablet} {
+        #section-transparency-mode {
+            width: 100%;
+            margin-left: 0;
+            // Main Content
+            .main-content {
+                top: 11.6%;
+                left: 0;
+                padding: 0 6.65vw;
+            }
+        }
+    }
+}

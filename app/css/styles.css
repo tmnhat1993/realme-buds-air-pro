@@ -118,7 +118,8 @@ p {
 
 #realme-air-buds-pro-page {
   padding-top: 140px;
-  /* === RESPONSIVE === */ }
+  /* === RESPONSIVE === */
+  /* === MOBILE === */ }
   #realme-air-buds-pro-page .img-holder img,
   #realme-air-buds-pro-page .img-holder picture {
     display: block;
@@ -149,12 +150,12 @@ p {
       color: #fff;
       font-size: 44px;
       line-height: 1.4;
-      font-weight: 500; }
+      font-weight: 600; }
     #realme-air-buds-pro-page .section .main-content .section-sub-title {
       color: #5e5e5e;
       font-size: 44px;
       margin-bottom: 20px;
-      font-weight: 500; }
+      font-weight: 600; }
     #realme-air-buds-pro-page .section .main-content .section-desc {
       color: #fff;
       font-size: 20px;
@@ -162,12 +163,44 @@ p {
       font-weight: 400; }
   @media only screen and (max-width: 1920px) {
     #realme-air-buds-pro-page .section .main-content .section-title {
-      font-size: 39px; }
+      font-size: 42px; }
     #realme-air-buds-pro-page .section .main-content .section-sub-title {
-      font-size: 39px;
+      font-size: 42px;
       margin-bottom: 25px; }
     #realme-air-buds-pro-page .section .main-content .section-desc {
       font-size: 15px;
+      line-height: 1.65; } }
+  @media only screen and (max-width: 768px) {
+    #realme-air-buds-pro-page .section .main-content .section-title {
+      font-size: 48px;
+      line-height: 1.4; }
+    #realme-air-buds-pro-page .section .main-content .section-sub-title {
+      font-size: 48px;
+      margin-bottom: 7vw; }
+    #realme-air-buds-pro-page .section .main-content .section-desc {
+      font-size: 24px;
+      line-height: 1.65; } }
+  @media only screen and (max-width: 480px) {
+    #realme-air-buds-pro-page .section .main-content .section-title {
+      font-size: 27px;
+      line-height: 1.4;
+      margin-bottom: 3vw; }
+    #realme-air-buds-pro-page .section .main-content .section-sub-title {
+      font-size: 27px;
+      margin-bottom: 6vw; }
+    #realme-air-buds-pro-page .section .main-content .section-desc {
+      font-size: 14px;
+      line-height: 1.65; } }
+  @media only screen and (max-width: 376px) {
+    #realme-air-buds-pro-page .section .main-content .section-title {
+      font-size: 23px;
+      line-height: 1.4;
+      margin-bottom: 3vw; }
+    #realme-air-buds-pro-page .section .main-content .section-sub-title {
+      font-size: 23px;
+      margin-bottom: 6vw; }
+    #realme-air-buds-pro-page .section .main-content .section-desc {
+      font-size: 12px;
       line-height: 1.65; } }
 
 .video-modal {
@@ -572,7 +605,8 @@ p {
     left: calc(50% - 30px); }
 
 #realme-air-buds-pro-page {
-  /* === RESPONSIVE === */ }
+  /* === RESPONSIVE === */
+  /* === MOBILE === */ }
   #realme-air-buds-pro-page #section-actice-noise-canceling {
     width: 100%; }
     #realme-air-buds-pro-page #section-actice-noise-canceling .main-content {
@@ -591,3 +625,52 @@ p {
       margin-left: calc((100% - 1920px) / 2); }
       #realme-air-buds-pro-page #section-actice-noise-canceling .disclaimer-txt {
         font-size: 16px; } }
+  @media only screen and (max-width: 768px) {
+    #realme-air-buds-pro-page #section-actice-noise-canceling {
+      width: 100%;
+      margin-left: 0; }
+      #realme-air-buds-pro-page #section-actice-noise-canceling .main-content {
+        top: 13%;
+        left: 0;
+        width: 100%;
+        padding: 0 6.65vw; }
+      #realme-air-buds-pro-page #section-actice-noise-canceling .disclaimer-txt {
+        font-size: 24px;
+        width: 100%;
+        left: 0;
+        top: 89%;
+        padding: 0 6.65vw; } }
+  @media only screen and (max-width: 480px) {
+    #realme-air-buds-pro-page #section-actice-noise-canceling .main-content {
+      top: 13.5%;
+      left: 0;
+      width: 100%; }
+    #realme-air-buds-pro-page #section-actice-noise-canceling .disclaimer-txt {
+      font-size: 14px; } }
+  @media only screen and (max-width: 376px) {
+    #realme-air-buds-pro-page #section-actice-noise-canceling .main-content {
+      top: 13.5%;
+      left: 0;
+      width: 100%; }
+    #realme-air-buds-pro-page #section-actice-noise-canceling .disclaimer-txt {
+      font-size: 12px; } }
+
+#realme-air-buds-pro-page {
+  /* === RESPONSIVE === */
+  /* === MOBILE === */ }
+  #realme-air-buds-pro-page #section-transparency-mode .main-content {
+    position: absolute;
+    top: 34%;
+    left: 26.5%; }
+  @media only screen and (max-width: 1920px) {
+    #realme-air-buds-pro-page #section-transparency-mode {
+      width: 1920px;
+      margin-left: calc((100% - 1920px) / 2); } }
+  @media only screen and (max-width: 768px) {
+    #realme-air-buds-pro-page #section-transparency-mode {
+      width: 100%;
+      margin-left: 0; }
+      #realme-air-buds-pro-page #section-transparency-mode .main-content {
+        top: 11.6%;
+        left: 0;
+        padding: 0 6.65vw; } }
