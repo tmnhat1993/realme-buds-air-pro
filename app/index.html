@@ -358,7 +358,23 @@
         data-scroll
       >
         <!-- Background -->
-        <div class="bg-holder"></div>
+        <div class="bg-holder img-holder bg-holder">
+          <picture>
+            <source
+              srcset="img/realme-s1/main-bg-mb.jpg"
+              media="(max-width: 480px)"
+            />
+            <source
+              srcset="img/realme-s1/main-bg-tablet.jpg"
+              media="(max-width: 768px)"
+            />
+            <source
+              srcset="img/realme-s1/main-bg.jpg"
+              media="(max-width: 1920px)"
+            />
+            <img src="img/realme-s1/main-bg-2k.jpg" alt="" />
+          </picture>
+        </div>
 
         <!-- Main Content -->
         <div class="main-content">
@@ -387,12 +403,30 @@
         data-scroll
       >
         <!-- Background -->
-        <div class="bg-holder"></div>
+        <div class="bg-holder img-holder bg-mode">
+          <picture>
+            <source
+              srcset="img/micro-noise-canceling/main-bg-mb.jpg"
+              media="(max-width: 480px)"
+            />
+            <source
+              srcset="img/micro-noise-canceling/main-bg-tablet.jpg"
+              media="(max-width: 768px)"
+            />
+            <source
+              srcset="img/micro-noise-canceling/main-bg.jpg"
+              media="(max-width: 1920px)"
+            />
+            <img src="img/micro-noise-canceling/main-bg-2k.jpg" alt="" />
+          </picture>
+        </div>
 
         <!-- Main Content -->
         <div class="main-content">
-          <h2 class="section-title">Chống ồn micrô kép cho cuộc gọi</h2>
-          <h3 class="section-sub-title">Kết nối luôn rõ ràng</h3>
+          <h2 class="section-title sm">
+            Chống ồn micrô kép cho <br class="mb-show" />cuộc gọi
+          </h2>
+          <h3 class="section-sub-title sm">Kết nối luôn rõ ràng</h3>
           <p class="section-desc">
             Các micrô kép tạo thành hệ thống giảm tiếng ồn mạnh mẽ được hỗ trợ
             bởi thuật toán khử tiếng<br class="mb-hide" />
@@ -407,10 +441,23 @@
       <!-- SECTION BATTERY -->
       <section class="section section-battery" id="section-battery" data-scroll>
         <!-- Background -->
-        <div class="bg-holder"></div>
-
-        <!-- Effect -->
-        <div class="effect-holder"></div>
+        <div class="bg-holder img-holder bg-mode">
+          <picture>
+            <source
+              srcset="img/battery-life/main-bg-mb.jpg"
+              media="(max-width:480px)"
+            />
+            <source
+              srcset="img/battery-life/main-bg-tablet.jpg"
+              media="(max-width:768px)"
+            />
+            <source
+              srcset="img/battery-life/main-bg.jpg"
+              media="(max-width:1920px)"
+            />
+            <img src="img/battery-life/main-bg-2k.jpg" alt="" />
+          </picture>
+        </div>
 
         <!-- Main Content -->
         <div class="main-content">
@@ -429,7 +476,9 @@
         <ul class="feature-listing">
           <!-- Feature Item -->
           <li class="feature-item">
-            <div class="feature-logo"></div>
+            <div class="feature-logo img-holder">
+              <img src="img/battery-life/battery-ico.svg" alt="" />
+            </div>
             <div class="feature-context">
               <p class="value">1 giờ</p>
               <p class="label">để sạc 100%</p>
@@ -438,7 +487,9 @@
 
           <!-- Feature Item -->
           <li class="feature-item">
-            <div class="feature-logo"></div>
+            <div class="feature-logo img-holder">
+              <img src="img/battery-life/clock-ico.svg" alt="" />
+            </div>
             <div class="feature-context">
               <p class="value">Nghe nhạc 3 giờ</p>
               <p class="label">Chỉ với 10 phút sạc</p>
@@ -447,7 +498,9 @@
 
           <!-- Feature Item -->
           <li class="feature-item">
-            <div class="feature-logo"></div>
+            <div class="feature-logo img-holder">
+              <img src="img/battery-life/music-ico.svg" alt="" />
+            </div>
             <div class="feature-context">
               <p class="value">20 giờ</p>
               <p class="label">Thời lượng pin khi ANC bật</p>
@@ -456,7 +509,9 @@
 
           <!-- Feature Item -->
           <li class="feature-item">
-            <div class="feature-logo"></div>
+            <div class="feature-logo img-holder">
+              <img src="img/battery-life/music-ico.svg" alt="" />
+            </div>
             <div class="feature-context">
               <p class="value">25 giờ</p>
               <p class="label">Nghe nhạc liên tục</p>
@@ -472,16 +527,43 @@
         id="section-low-latency"
         data-scroll
       >
+        <!-- Mold -->
+        <div class="mold">
+          <picture>
+            <source
+              srcset="img/low-latency/low-latency-screen-mb.jpg"
+              media="(max-width: 768px)"
+            />
+            <img src="img/low-latency/low-latency-screen.jpg" alt="" />
+          </picture>
+        </div>
+
         <!-- Background -->
-        <div class="bg-holder"></div>
+        <div class="bg-holder img-holder bg-mode">
+          <picture>
+            <source
+              srcset="img/low-latency/main-bg-mb.jpg"
+              media="(max-width: 480px)"
+            />
+            <source
+              srcset="img/low-latency/main-bg-tablet.jpg"
+              media="(max-width: 768px)"
+            />
+            <source
+              srcset="img/low-latency/main-bg.jpg"
+              media="(max-width: 1920px)"
+            />
+            <img src="img/low-latency/main-bg-2k.jpg" alt="" />
+          </picture>
+        </div>
 
         <!-- Effect -->
         <div class="effect-holder"></div>
 
         <!-- Main Content -->
         <div class="main-content">
-          <h2 class="section-title">Độ trễ siêu thấp 94ms *</h2>
-          <h3 class="section-sub-title">Chơi game không lag</h3>
+          <h2 class="section-title sm">Độ trễ siêu thấp 94ms *</h2>
+          <h3 class="section-sub-title sm">Chơi game không lag</h3>
           <p class="section-desc">
             Khi bật Chế độ trò chơi, độ trễ của tai nghe thấp tới 94ms, vì vậy
             dù bạn đang xem phim hay chơi trò chơi,<br class="mb-hide" />
@@ -499,15 +581,40 @@
         data-scroll
       >
         <!-- Background -->
-        <div class="bg-holder"></div>
+        <div class="bg-holder">
+          <picture>
+            <source
+              srcset="
+                iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=
+              "
+              media="(max-width: 768px)"
+            />
+            <img src="img/bluetooth/bluetooth-main-bg.jpg" alt="" />
+          </picture>
+        </div>
 
         <!-- Effect -->
-        <div class="effect-holder"></div>
+        <div class="effect-holder">
+          <!-- Ear buds Image -->
+          <div class="img-holder earbuds-img">
+            <img src="img/bluetooth/bluetooth-earbuds.png" alt="" />
+          </div>
+
+          <!-- Decor Circle Holder -->
+          <div class="img-holder decor-holder">
+            <img src="img/bluetooth/bluetooth-effect-circle.png" alt="" />
+          </div>
+
+          <!-- Rotating Circle Image Holder -->
+          <div class="img-holder circle-img-holder">
+            <img src="img/bluetooth/bluetooth-decorate-circle.svg" alt="" />
+          </div>
+        </div>
 
         <!-- Main Content -->
         <div class="main-content">
-          <h2 class="section-title">Bluetooth 5.0</h2>
-          <h3 class="section-sub-title">Kết nối nhanh và ổn định</h3>
+          <h2 class="section-title sm">Bluetooth 5.0</h2>
+          <h3 class="section-sub-title sm">Kết nối nhanh và ổn định</h3>
           <p class="section-desc">
             Thế hệ mới của Bluetooth 5.0 kết nối ổn định ngay cả khi đối<br
               class="mb-hide"

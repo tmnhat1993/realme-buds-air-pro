@@ -46,6 +46,7 @@
                 color: #5e5e5e;
                 font-size: 44px;
                 margin-bottom: 20px;
+                line-height: 1.2;
                 font-weight: 600;
             }
             .section-desc {
@@ -64,10 +65,17 @@
             .main-content {
                 .section-title {
                     font-size: 42px;
+
+                    &.sm {
+                        font-size: 37px;
+                    }
                 }
                 .section-sub-title {
                     font-size: 42px;
                     margin-bottom: 25px;
+                    &.sm {
+                        font-size: 37px;
+                    }
                 }
                 .section-desc {
                     font-size: 15px;
@@ -85,10 +93,19 @@
                 .section-title {
                     font-size: 48px;
                     line-height: 1.4;
+
+                    &.sm {
+                        font-size: 48px;
+                    }
                 }
                 .section-sub-title {
                     font-size: 48px;
+                    line-height: 1.4;
                     margin-bottom: 7vw;
+
+                    &.sm {
+                        font-size: 48px;
+                    }
                 }
                 .section-desc {
                     font-size: 24px;
@@ -106,10 +123,16 @@
                     font-size: 27px;
                     line-height: 1.4;
                     margin-bottom: 3vw;
+                    &.sm {
+                        font-size: 27px;
+                    }
                 }
                 .section-sub-title {
                     font-size: 27px;
                     margin-bottom: 6vw;
+                    &.sm {
+                        font-size: 27px;
+                    }
                 }
                 .section-desc {
                     font-size: 14px;
@@ -127,10 +150,16 @@
                     font-size: 23px;
                     line-height: 1.4;
                     margin-bottom: 3vw;
+                    &.sm {
+                        font-size: 23px;
+                    }
                 }
                 .section-sub-title {
                     font-size: 23px;
                     margin-bottom: 6vw;
+                    &.sm {
+                        font-size: 23px;
+                    }
                 }
                 .section-desc {
                     font-size: 12px;

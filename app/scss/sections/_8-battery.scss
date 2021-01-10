@@ -1,0 +1,160 @@
+#realme-air-buds-pro-page {
+    // Section Battery
+    #section-battery {
+        // Main Content
+        .main-content {
+            position: absolute;
+            text-align: center;
+            top: 14.25%;
+            width: 100%;
+        }
+
+        // Feature Listing
+        .feature-listing {
+            position: absolute;
+            display: flex;
+            color: $white;
+            bottom: 11.5%;
+            width: 50%;
+            left: 25%;
+            justify-content: center;
+            // Feature Item
+            .feature-item {
+                flex-basis: 25%;
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                // Feature Logo
+                .feature-logo {
+                    width: 11%;
+                    margin-right: 4%;
+                }
+                // Feature Context
+                .feature-context {
+                    display: flex;
+                    flex-direction: column;
+                    > * {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        white-space: nowrap;
+                    }
+                    .value {
+                    }
+
+                    .label {
+                        color: #9b9b9b;
+                    }
+                }
+            }
+        }
+    }
+    /* === RESPONSIVE === */
+    // 1920px down to 768px
+    @media #{$information-lg-screen} {
+        #section-battery {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+        }
+    }
+    /* === MOBILE === */
+    // 768px down to 480px
+    @media #{$information-tablet} {
+        #section-battery {
+            width: 100%;
+            margin-left: 0;
+            // Main Content
+            .main-content {
+                text-align: left;
+                padding: 0 6.65vw;
+                top: 10%;
+            }
+
+            // Feature Listing
+            .feature-listing {
+                flex-wrap: wrap;
+                bottom: 2.5%;
+                width: 100%;
+                left: 0;
+                padding: 0px 3.65vw;
+                // Feature Item
+                .feature-item {
+                    flex-basis: 50%;
+                    width: 50%;
+                    flex-grow: 0;
+                    margin-bottom: 12vw;
+                    padding: 0px 4vw;
+                    justify-content: flex-start;
+
+                    // Feature Logo
+                    .feature-logo {
+                        width: 15%;
+                        margin-right: 7%;
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                    }
+                    // Feature Context
+                    .feature-context {
+                        > * {
+                            line-height: 1.5;
+                            white-space: normal;
+                        }
+                        .value {
+                            font-size: 28px;
+                            margin-bottom: 12px;
+                            font-weight: 600;
+                        }
+                        .label {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 480px down to 375px
+    @media #{$information-tablet} {
+        #section-battery {
+            // Feature Listing
+            .feature-listing {
+                // Feature Item
+                .feature-item {
+                    margin-bottom: 11vw;
+                    // Feature Context
+                    .feature-context {
+                        .value {
+                            font-size: 16px;
+                            margin-bottom: 7px;
+                            white-space: nowrap;
+                        }
+                        .label {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 480px down to 375px
+    @media #{$information-sm-phone} {
+        #section-battery {
+            // Feature Listing
+            .feature-listing {
+                // Feature Item
+                .feature-item {
+                    margin-bottom: 10vw;
+                    // Feature Context
+                    .feature-context {
+                        .value {
+                            font-size: 14px;
+                            margin-bottom: 5px;
+                        }
+                        .label {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

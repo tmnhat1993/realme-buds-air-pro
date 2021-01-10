@@ -1,0 +1,88 @@
+#realme-air-buds-pro-page {
+    // BLUETOOTH SECTION
+    #section-bluetooth {
+        background-color: #090909;
+
+        // Main Content
+        .main-content {
+            position: absolute;
+            top: 37%;
+            left: 26.5%;
+            z-index: 2;
+        }
+        // Effect Holder
+        .effect-holder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            // Common Image Holder
+            .img-holder {
+                position: absolute;
+            }
+            // Individual Elements Styling
+            .earbuds-img {
+                z-index: 3;
+                width: 10%;
+                left: 56.8%;
+                top: 32%;
+            }
+            .decor-holder {
+                z-index: 1;
+                width: 25%;
+                left: 50%;
+                top: 15%;
+            }
+            .circle-img-holder {
+                z-index: 2;
+                width: 19%;
+                left: 52%;
+                top: 25.8%;
+            }
+        }
+    }
+    /* === RESPONSIVE === */
+    // 1920px and bellow
+    @media #{$information-lg-screen} {
+        #section-bluetooth {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+            // Main Content
+            .main-content {
+                .section-title {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+    /* === MOBILE === */
+    @media #{$information-tablet} {
+        #section-bluetooth {
+            height: 169vw;
+            width: 100%;
+            margin-left: 0;
+            // Main Content
+            .main-content {
+                left: 0;
+                width: 100%;
+                padding: 0 6.65vw;
+                top: 4%;
+            }
+            // Effect Holder
+            .effect-holder {
+                .earbuds-img {
+                    width: 49%;
+                    left: 25.8%;
+                    top: 47.4%;
+                }
+                .circle-img-holder {
+                    width: 87%;
+                    left: 6%;
+                    top: 42.8%;
+                }
+            }
+        }
+    }
+}
