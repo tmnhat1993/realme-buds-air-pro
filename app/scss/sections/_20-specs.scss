@@ -1,0 +1,207 @@
+#realme-air-buds-pro-page {
+    #section-specs {
+        background-color: #F1F1F1;
+        padding: 5vw 0;
+        // Specs Holder
+        .specs-holder {
+            width: 1200px;
+            margin: auto;
+            max-width: 100%;
+            // Title
+            .specs-title {
+                text-transform: uppercase;
+                margin-bottom: 50px;
+                font-weight: 600;
+                text-align: center;
+                font-size: 50px;
+            }
+            // Specs Layout
+            .specs-layout {
+                background-color: #fff;
+                padding: 40px 100px;
+                // Row
+                .specs-row {
+                    display: flex;
+                    justify-content: space-between;
+                    // Specs Group
+                    .specs-group {
+                        width: 43%;
+                        padding: 65px 0;
+                        border-bottom: 1px solid #E9E9E9;
+                        // Label
+                        .label {
+                            font-size: 24px;
+                            font-weight: 600;
+                            margin-bottom: 30px;
+                        }
+                        // Desc
+                        .desc {
+                            font-size: 16px;
+                            color: #282828;
+                            font-weight: 600;
+                            line-height: 2;
+                            margin-bottom: 15px;
+                        }
+                    }
+                    &:last-child {
+                        .specs-group {
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        // Disclaimer Holder
+        .disclaimer-holder {
+            width: 1200px;
+            margin: 5vw auto 0;
+            max-width: 100%;
+            // paragraph
+            p {
+                opacity: 0.6;
+                color: #282828;
+                line-height: 2;
+                font-weight: 600;
+                line-height: 2.5;
+                font-size: 16px;
+            }
+        }
+    }
+    /* === RESPONSIVE === */
+    @media #{$information-sm-screen} {
+        #section-specs {
+            padding: 4vw 0;
+            // Specs Holder
+            .specs-holder {
+                width: 1080px;
+                // Title
+                .specs-title {
+                    margin-bottom: 36px;
+                    font-size: 36px;
+                }
+                // Specs Layout
+                .specs-layout {
+                    background-color: #fff;
+                    padding: 30px 80px;
+                    // Row
+                    .specs-row {
+                        // Specs Group
+                        .specs-group {
+                            width: 43%;
+                            padding: 50px 0;
+                            // Label
+                            .label {
+                                font-size: 20px;
+                                font-weight: 600;
+                                margin-bottom: 20px;
+                            }
+                            // Desc
+                            .desc {
+                                font-size: 13px;
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            // Disclaimer Holder
+            .disclaimer-holder {
+                width: 1080px;
+                // paragraph
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    /* === MOBILE === */
+    // 768px down to 480px
+    @media #{$information-tablet} {
+        #section-specs {
+            padding: 4vw 0;
+            // Specs Holder
+            .specs-holder {
+                // Title
+                .specs-title {
+                    margin-bottom: 36px;
+                    font-size: 36px;
+                }
+                // Specs Layout
+                .specs-layout {
+                    background-color: #fff;
+                    padding: 5vw;
+                    // Row
+                    .specs-row {
+                        flex-wrap: wrap;
+                        // Specs Group
+                        .specs-group {
+                            width: 100%;
+                            padding: 3vw 0;
+                            // Label
+                            .label {
+                                font-size: 24px;
+                                margin-bottom: 3vw;
+                            }
+                            // Desc
+                            .desc {
+                                font-size: 16px;
+                                margin-bottom: 1.5vw;
+                            }
+                        }
+                    }
+                }
+            }
+            // Disclaimer Holder
+            .disclaimer-holder {
+                padding: 0 30px;
+                // paragraph
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    // 480px down to 375px
+    @media #{$information-phone} {
+        #section-specs {
+            padding: 12.5vw 0;
+            // Specs Holder
+            .specs-holder {
+                // Title
+                .specs-title {
+                    margin-bottom: 24px;
+                    font-size: 26px;
+                }
+                // Specs Layout
+                .specs-layout {
+                    padding: 5vw;
+                    // Row
+                    .specs-row {
+                        justify-content: center;
+                        // Specs Group
+                        .specs-group {
+                            width: 95%;
+                            padding: 5vw 0;
+                            // Label
+                            .label {
+                                font-size: 20px;
+                            }
+                            // Desc
+                            .desc {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+            // Disclaimer Holder
+            .disclaimer-holder {
+                padding: 0 20px;
+                // paragraph
+                p {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

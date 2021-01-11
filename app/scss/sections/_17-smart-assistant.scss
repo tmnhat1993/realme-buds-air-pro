@@ -1,0 +1,81 @@
+#realme-air-buds-pro-page {
+    // SMART ASSISTANT SECTION
+    #section-smart-assistant {
+        background-color: #090909;
+        overflow: hidden;
+        // Effect Holder
+        .effect-holder {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            // Google Assistant Image
+            .google-assistant-img {
+                position: absolute;
+                width: 24.9%;
+                top: 67.8%;
+                left: 26.65%;
+            }
+        }
+        // Main Content
+        .main-content {
+            position: absolute;
+            z-index: 2;
+            width: 25%;
+            top: 21.35%;
+            left: 26.65%;
+            // Section Title
+            .section-title {
+                white-space: nowrap;
+                &.line-2 {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+    /* === REPONSIVE === */
+    @media #{$information-lg-screen} {
+        #section-smart-assistant {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+            // Main Content
+            .main-content {
+                .section-title {
+                    &.line-2 {
+                        margin-bottom: 27px;
+                    }
+                }
+            }
+        }
+    }
+    /* === MOBILE === */
+    @media #{$information-tablet} {
+        #section-smart-assistant {
+            width: 100%;
+            margin-left: 0;
+            // Effect Holder
+            .effect-holder {
+                // Google Assistant Image
+                .google-assistant-img {
+                    width: 76.9%;
+                    top: 35.9%;
+                    left: 6.65%;
+                }
+            }
+            // Main Content
+            .main-content {
+                padding: 0 6.65vw;
+                width: 100%;
+                left: 0;
+                top: 9.7%;
+                .section-title {
+                    &.line-2 {
+                        margin-bottom: 7.5vw;
+                    }
+                }
+            }
+        }
+    }
+}
