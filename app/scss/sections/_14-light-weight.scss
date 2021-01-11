@@ -1,0 +1,83 @@
+#realme-air-buds-pro-page {
+    // LIGHT WEIGHT  SECTION
+    #section-light-weight {
+        background-color: #090909;
+        // Effect Holder
+        .effect-holder {
+            position: absolute;
+            top: 31%;
+            width: 19.37%;
+            left: 54%;
+            .context {
+                position: absolute;
+                width: 93%;
+                text-align: center;
+                top: 108%;
+                color: $white;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+        // Main Content
+        .main-content {
+            position: absolute;
+            top: 35%;
+            width: 25%;
+            left: 26.65%;
+            // Section Title
+            .section-title {
+                margin-bottom: 7px;
+            }
+        }
+    }
+    /* === RESPONSIVE === */
+    // 1920px down to 768px
+    @media #{$information-lg-screen} {
+        #section-light-weight {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+            // Effect Holder
+            .effect-holder {
+                .context {
+                    width: 90%;
+                    font-size: 18px;
+                }
+            }
+            // Main Content
+            .main-content {
+                // Section Title
+                .section-title {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+    /* === MOBILE === */
+    // 768px down to 480px
+    @media #{$information-tablet} {
+        #section-light-weight {
+            width: 100%;
+            margin-left: 0;
+            height: 155vw;
+            // Effect Holder
+            .effect-holder {
+                display: none;
+            }
+            // Main Content
+            .main-content {
+                top: 1%;
+                width: 100%;
+                left: 0;
+                padding: 0 6.65vw;
+                // Section Title
+                .section-title {
+                    margin-bottom: 0.5vw;
+                }
+                // Section Sub Title
+                .section-sub-title {
+                    margin-bottom: 6vw;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,146 @@
+#realme-air-buds-pro-page {
+    // DESGIN SECTION
+    #section-design {
+        // background-color: #090909;
+        // Main Content
+        .main-content {
+            position: absolute;
+            top: 14%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            // Section Title
+            .section-title {
+                margin-bottom: 19px;
+            }
+        }
+        // Effect
+        .effect-holder {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            // Common Layer Style
+            .slogan-holder,
+            .earbuds-holder {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                .img-holder {
+                    position: absolute;
+                }
+            }
+            // Slogan Holder
+            .slogan-holder {
+                z-index: 0;
+                // Line 1
+                .slogan-line-1 {
+                    width: 52.3%;
+                    top: 47%;
+                    left: 24.1%;
+                }
+                // Line 2
+                .slogan-line-2 {
+                    width: 28.45%;
+                    top: 59%;
+                    left: 35.6%;
+                }
+            }
+            // Earbuds Holder
+            .earbuds-holder {
+                z-index: 1;
+                // Main Image
+                .main-image {
+                    width: 21.15%;
+                    left: 39.4%;
+                    top: 39%;
+                }
+                // Shadow Image
+                .shadow-image {
+                    width: 17.15%;
+                    left: 41.4%;
+                    top: 74.2%;
+                }
+            }
+        }
+    }
+    /* === RESPONSIVE === */
+    // 1920px down to 768px
+    @media #{$information-lg-screen} {
+        #section-design {
+            width: 1920px;
+            margin-left: calc((100% - 1920px) / 2);
+            // Main Content
+            .main-content {
+                // Section Title
+                .section-title {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+    /* === MOBILE === */
+    // 768px and bellow
+    @media #{$information-tablet} {
+        #section-design {
+            background-color: #090909;
+            width: 100%;
+            margin-left: 0;
+            height: 189vw;
+            // Main Content
+            .main-content {
+                width: 100%;
+                left: 0;
+                top: 11.75%;
+                padding: 0 6.65vw;
+                // Section Title
+                .section-title {
+                    margin-bottom: 1vw;
+                }
+                // Sub Title
+                .section-sub-title {
+                    margin-bottom: 6.5vw;
+                }
+            }
+            // Effect Holder
+            .effect-holder {
+                // Slogan Holder
+                .slogan-holder {
+                    // Slogan Line 1
+                    .slogan-line-1 {
+                        width: 126.3%;
+                        top: 52.2%;
+                        left: -0.9%;
+                    }
+                    // Slogan Line 2
+                    .slogan-line-2 {
+                        width: 68.75%;
+                        top: 61.7%;
+                        left: 15.6%;
+                    }
+                }
+                // Earbuds Holder
+                .earbuds-holder {
+                    z-index: 1;
+                    // Main Image
+                    .main-image {
+                        width: 59.95%;
+                        left: 19.9%;
+                        top: 46%;
+                    }
+                    // Shadow Image
+                    .shadow-image {
+                        width: 48.15%;
+                        left: 26.4%;
+                        top: 74.2%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,156 @@
+#realme-air-buds-pro-page {
+    // BASS BOOST SECTION
+    #section-bass-boost {
+        height: 98vw;
+        background-color: #090909;
+        // Main Content
+        .main-content {
+            position: absolute;
+            z-index: 2;
+        }
+        // Top Group
+        .top-group {
+            position: absolute;
+            height: 48.25%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            // Effect Holder
+            .effect-holder {
+                position: absolute;
+                background-color: #1f1f21;
+                width: 86%;
+                left: 7%;
+                height: 92%;
+                top: 0;
+                // Earbuds Full Image Holder
+                .main-earbuds-img {
+                    position: absolute;
+                    width: 54.6%;
+                    left: 22.7%;
+                    top: 46.6%;
+                }
+            }
+            // Main Content
+            .main-content {
+                top: 10%;
+                left: 26.5%;
+                // Section Title
+                .section-title {
+                    margin-bottom: 12px;
+                }
+            }
+        }
+        // Bottom Group
+        .bottom-group {
+            position: absolute;
+            height: 51.75%;
+            left: 0;
+            top: 48.25%;
+            width: 100%;
+            // Image Chart
+            .bass-boost-chart-img {
+                position: absolute;
+                width: 45.45%;
+                left: 27.35%;
+                top: 12.3%;
+            }
+            // Main Content
+            .main-content {
+                top: 64%;
+                left: 26.5%;
+                // Section Title
+                .section-title {
+                    margin-bottom: 20px
+                }
+                .disclaimer {
+                    margin-top: 60px;
+                    color: #c0c0c0;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    /* === RESPONSIVE === */
+    // 1920px down to 768px
+    @media #{$information-lg-screen} {
+        #section-bass-boost {
+            width: 1920px;
+            height: 1882px;
+            margin-left: calc((100% - 1920px) /2);
+            // Top Group
+            .top-group {
+                // Main Content
+                .main-content {
+                    // Section Title
+                    .section-title {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+    /* === MOBILE === */
+    @media #{$information-tablet} {
+        #section-bass-boost {
+            width: 100%;
+            height: 305.29vw;
+            margin-left: 0;
+            // Main content
+            .main-content {
+                padding: 0 6.65vw;
+                width: 100%;
+            }
+            // Top Group
+            .top-group {
+                height: 48.9%;
+                // Effect Holder
+                .effect-holder {
+                    width: 100%;
+                    left: 0;
+                    height: 100%;
+                    top: 0;
+                    // Earbuds Full Image Holder
+                    .main-earbuds-img {
+                        width: 86.6%;
+                        left: 6.9%;
+                        top: 62.7%;
+                    }
+                }
+                // Main Content
+                .main-content {
+                    top: 15%;
+                    left: 0;
+                    // Section Title
+                    .section-title {
+                        margin-bottom: 1.15vw;
+                    }
+                }
+            }
+            // Bottom Group
+            .bottom-group {
+                height: 51.1%;
+                top: 48.9%;
+                width: 100%;
+                // Image Chart
+                .bass-boost-chart-img {
+                    width: 89.4%;
+                    left: 6.325%;
+                    top: 15.5%;
+                }
+                // Main Content
+                .main-content {
+                    top: 63.25%;
+                    left: 0;
+                    // Section Title
+                    .section-title {
+                        margin-bottom: 5vw
+                    }
+                    .disclaimer {
+                        margin-top: 9vw;
+                    }
+                }
+            }
+        }
+    }
+}
