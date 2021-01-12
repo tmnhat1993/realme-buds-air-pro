@@ -1,6 +1,8 @@
 #realme-air-buds-pro-page {
     // Section Battery
     #section-battery {
+        overflow: hidden;
+        background-color: #090909;
         // Main Content
         .main-content {
             position: absolute;
@@ -8,7 +10,6 @@
             top: 14.25%;
             width: 100%;
         }
-
         // Feature Listing
         .feature-listing {
             position: absolute;
@@ -34,14 +35,12 @@
                 .feature-context {
                     display: flex;
                     flex-direction: column;
-                    > * {
+                    >* {
                         font-size: 16px;
                         line-height: 1.5;
                         white-space: nowrap;
                     }
-                    .value {
-                    }
-
+                    .value {}
                     .label {
                         color: #9b9b9b;
                     }
@@ -69,7 +68,6 @@
                 padding: 0 6.65vw;
                 top: 10%;
             }
-
             // Feature Listing
             .feature-listing {
                 flex-wrap: wrap;
@@ -85,7 +83,6 @@
                     margin-bottom: 12vw;
                     padding: 0px 4vw;
                     justify-content: flex-start;
-
                     // Feature Logo
                     .feature-logo {
                         width: 15%;
@@ -95,7 +92,7 @@
                     }
                     // Feature Context
                     .feature-context {
-                        > * {
+                        >* {
                             line-height: 1.5;
                             white-space: normal;
                         }

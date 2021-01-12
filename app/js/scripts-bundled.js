@@ -9028,7 +9028,18 @@ function () {
   function Banner() {
     _classCallCheck(this, Banner);
 
-    // Bind Event
+    // Variables
+    this.$BannerSection = $('#section-banner'); // Background
+
+    this.$BannerBg = this.$BannerSection.find('.bg-holder'); // Effect Elements
+
+    this.$BannerEffect = this.$BannerSection.find('.effect-holder');
+    this.$BannerEffect_RightBud = this.$BannerEffect.find('.right-bud-holder');
+    this.$BannerEffect_LeftBud = this.$BannerEffect.find('.left-bud-holder');
+    this.$BannerEffect_Case = this.$BannerEffect.find('.case-holder'); // Main Content
+
+    this.$BannerMainContent = this.$BannerSection.find('.main-content'); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9038,11 +9049,85 @@ function () {
 
   _createClass(Banner, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-banner-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$BannerBg, this.$BannerEffect_RightBud, this.$BannerEffect_LeftBud, this.$BannerEffect_Case, this.$BannerMainContent], {
+        alpha: 0
+      }); // Animation Build
+
+      this.BannerAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.BannerAnimation.add('anim-start'); // Background
+
+      this.BannerAnimation.fromTo(this.$BannerBg, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.BannerAnimation.add('background-show'); // Effect Elements
+
+      this.BannerAnimation.fromTo(this.$BannerEffect_Case, 0.7, {
+        y: this.DISTANCE * 0.025,
+        apha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 'background-show-=0.4');
+      this.BannerAnimation.fromTo(this.$BannerEffect_RightBud, 0.7, {
+        y: this.DISTANCE * 0.03,
+        rotation: -22,
+        alpha: 0
+      }, {
+        y: 0,
+        rotation: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 'background-show-=0.2');
+      this.BannerAnimation.fromTo(this.$BannerEffect_LeftBud, 0.7, {
+        y: this.DISTANCE * 0.03,
+        rotation: 22,
+        alpha: 0
+      }, {
+        y: 0,
+        rotation: 0,
+        easing: Power3.easeOut,
+        alpha: 1
+      }, 'background-show-=0.2'); // Main Content
+
+      this.BannerAnimation.fromTo(this.$BannerMainContent, 0.4, {
+        y: this.DISTANCE * 0.01,
+        alpha: 0
+      }, {
+        alpha: 1,
+        y: 0
+      }, 'background-show-=0.1');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.BannerAnimation.play();
+    }
   }]);
 
   return Banner;
@@ -9077,7 +9162,18 @@ function () {
   function Features() {
     _classCallCheck(this, Features);
 
-    // Bind Event
+    // Variables
+    this.$FeatureSection = $('#section-features');
+    this.$FeatureLayout = this.$FeatureSection.find('.feature-layout');
+    this.ItemsOrder = [];
+
+    if (IS_MOBILE) {
+      this.ItemsOrder = [this.$FeatureLayout.find('.feature-quick-charge'), this.$FeatureLayout.find('.feature-transparency-mode'), this.$FeatureLayout.find('.feature-bass-boost'), this.$FeatureLayout.find('.feature-low-latency'), this.$FeatureLayout.find('.feature-25-hours-music'), this.$FeatureLayout.find('.feature-active-noise-canceling'), this.$FeatureLayout.find('.feature-bluetooth'), this.$FeatureLayout.find('.feature-noise-canceling')];
+    } else {
+      this.ItemsOrder = [this.$FeatureLayout.find('.feature-quick-charge'), this.$FeatureLayout.find('.feature-bass-boost'), this.$FeatureLayout.find('.feature-bluetooth'), this.$FeatureLayout.find('.feature-noise-canceling'), this.$FeatureLayout.find('.feature-transparency-mode'), this.$FeatureLayout.find('.feature-low-latency'), this.$FeatureLayout.find('.feature-25-hours-music'), this.$FeatureLayout.find('.feature-active-noise-canceling')];
+    } // Bind Event
+
+
     this.bindEvents();
   }
   /* ===================================
@@ -9087,11 +9183,47 @@ function () {
 
   _createClass(Features, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-features-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      console.log(this.ItemsOrder);
+      TweenMax.set(this.ItemsOrder, {
+        alpha: 0
+      }); // Animation Build
+
+      this.FeaturesAnimation = new TimelineMax({
+        paused: true
+      }); // Start
+
+      this.FeaturesAnimation.add('anim-start');
+      this.FeaturesAnimation.staggerFromTo(this.ItemsOrder, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075);
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.FeaturesAnimation.play();
+    }
   }]);
 
   return Features;
@@ -9175,7 +9307,16 @@ function () {
   function ActiveNoiseCanceling() {
     _classCallCheck(this, ActiveNoiseCanceling);
 
-    // Bind Event
+    // Variables
+    this.$ActiveNoiseCancelingSection = $('#section-actice-noise-canceling'); // Background
+
+    this.$Background = this.$ActiveNoiseCancelingSection.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$ActiveNoiseCancelingSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Disclaimer
+
+    this.$Disclaimer = this.$ActiveNoiseCancelingSection.find('.disclaimer-txt'); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9185,11 +9326,60 @@ function () {
 
   _createClass(ActiveNoiseCanceling, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-actice-noise-canceling-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Content_Elements, this.$Disclaimer], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.ActiveNoiseCancelingAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.ActiveNoiseCancelingAnimation.add('anim-start'); // Background
+
+      this.ActiveNoiseCancelingAnimation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.ActiveNoiseCancelingAnimation.add('background-show'); // Content
+
+      this.ActiveNoiseCancelingAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2');
+      this.ActiveNoiseCancelingAnimation.to(this.$Disclaimer, 0.3, {
+        alpha: 1
+      }, 'background-show-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.ActiveNoiseCancelingAnimation.play();
+    }
   }]);
 
   return ActiveNoiseCanceling;
@@ -9224,7 +9414,14 @@ function () {
   function Transparency() {
     _classCallCheck(this, Transparency);
 
-    // Bind Event
+    // Variables
+    this.$TransparencySection = $('#section-transparency-mode'); // Background
+
+    this.$Background = this.$TransparencySection.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$TransparencySection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9234,11 +9431,62 @@ function () {
 
   _createClass(Transparency, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-transparency-mode-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      var _this2 = this;
+
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.TransparencyAnimation = new TimelineMax({
+        paused: true,
+        onComplete: function onComplete() {
+          _this2.$Background.addClass('is-active');
+        }
+      }); // Anim Start
+
+      this.TransparencyAnimation.add('anim-start'); // Background
+
+      this.TransparencyAnimation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.TransparencyAnimation.add('background-show'); // Content
+
+      this.TransparencyAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.TransparencyAnimation.play();
+    }
   }]);
 
   return Transparency;
@@ -9273,7 +9521,14 @@ function () {
   function RealmeS1() {
     _classCallCheck(this, RealmeS1);
 
-    // Bind Event
+    // Variables
+    this.$realmeS1Section = $('#section-realme-s1-chip'); // Background
+
+    this.$Background = this.$realmeS1Section.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$realmeS1Section.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9283,11 +9538,62 @@ function () {
 
   _createClass(RealmeS1, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-realme-s1-chip-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      var _this2 = this;
+
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.RealmeS1Animation = new TimelineMax({
+        paused: true,
+        onComplete: function onComplete() {
+          _this2.$Background.addClass('is-active');
+        }
+      }); // Anim Start
+
+      this.RealmeS1Animation.add('anim-start'); // Background
+
+      this.RealmeS1Animation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.RealmeS1Animation.add('background-show'); // Content
+
+      this.RealmeS1Animation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.RealmeS1Animation.play();
+    }
   }]);
 
   return RealmeS1;
@@ -9322,7 +9628,14 @@ function () {
   function MicroNoiseCanceling() {
     _classCallCheck(this, MicroNoiseCanceling);
 
-    // Bind Event
+    // Variables
+    this.$MicroNoiseCancelingSection = $('#section-double-micro-noise-canceling'); // Background
+
+    this.$Background = this.$MicroNoiseCancelingSection.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$MicroNoiseCancelingSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9332,11 +9645,57 @@ function () {
 
   _createClass(MicroNoiseCanceling, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-double-micro-noise-canceling-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.MicroNoiseCancelingAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.MicroNoiseCancelingAnimation.add('anim-start'); // Background
+
+      this.MicroNoiseCancelingAnimation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.MicroNoiseCancelingAnimation.add('background-show'); // Content
+
+      this.MicroNoiseCancelingAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.MicroNoiseCancelingAnimation.play();
+    }
   }]);
 
   return MicroNoiseCanceling;
@@ -9371,7 +9730,16 @@ function () {
   function Battery() {
     _classCallCheck(this, Battery);
 
-    // Bind Event
+    // Variables
+    this.$BatterySection = $('#section-battery'); // Background
+
+    this.$Background = this.$BatterySection.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$BatterySection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Feature
+
+    this.$FeatureList = this.$BatterySection.find('.feature-listing'); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9381,11 +9749,65 @@ function () {
 
   _createClass(Battery, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-battery-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Content_Elements, this.$FeatureList], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.BatteryAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.BatteryAnimation.add('anim-start'); // Background
+
+      this.BatteryAnimation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.BatteryAnimation.add('background-show'); // Content
+
+      this.BatteryAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2'); // Feature
+
+      this.BatteryAnimation.fromTo(this.$FeatureList, 0.4, {
+        alpha: 0,
+        y: this.DISTANCE * 0.015
+      }, {
+        alpha: 1,
+        y: 0
+      }, 'background-show+=0.3');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.BatteryAnimation.play();
+    }
   }]);
 
   return Battery;
@@ -9420,7 +9842,14 @@ function () {
   function LowLatency() {
     _classCallCheck(this, LowLatency);
 
-    // Bind Event
+    // Variables
+    this.$LowLatencySection = $('#section-low-latency'); // Background
+
+    this.$Background = this.$LowLatencySection.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$LowLatencySection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9430,11 +9859,57 @@ function () {
 
   _createClass(LowLatency, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-low-latency-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Content_Elements, this.$FeatureList], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.LowLatencyAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.LowLatencyAnimation.add('anim-start'); // Background
+
+      this.LowLatencyAnimation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.LowLatencyAnimation.add('background-show'); // Content
+
+      this.LowLatencyAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.LowLatencyAnimation.play();
+    }
   }]);
 
   return LowLatency;
@@ -9469,7 +9944,14 @@ function () {
   function Bluetooth() {
     _classCallCheck(this, Bluetooth);
 
-    // Bind Event
+    // Variables
+    this.$BluetoothSection = $('#section-bluetooth'); // Effect
+
+    this.$Effect = this.$BluetoothSection.find('.effect-holder'); // Main Content
+
+    this.$Content = this.$BluetoothSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9479,11 +9961,62 @@ function () {
 
   _createClass(Bluetooth, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-bluetooth-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      var _this2 = this;
+
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect, this.$Content_Elements, this.$FeatureList], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.BluetoothAnimation = new TimelineMax({
+        paused: true,
+        onComplete: function onComplete() {
+          _this2.$Effect.addClass('is-active');
+        }
+      }); // Anim Start
+
+      this.BluetoothAnimation.add('anim-start'); // Background
+
+      this.BluetoothAnimation.fromTo(this.$Effect, 0.75, {
+        alpha: 0,
+        y: this.DISTANCE * 0.025
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      });
+      this.BluetoothAnimation.add('background-show'); // Content
+
+      this.BluetoothAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.BluetoothAnimation.play();
+    }
   }]);
 
   return Bluetooth;
@@ -9518,7 +10051,14 @@ function () {
   function DoubleChannel() {
     _classCallCheck(this, DoubleChannel);
 
-    // Bind Event
+    // Variables
+    this.$DoubleChannel = $('#section-double-channel'); // Background
+
+    this.$Effect = this.$DoubleChannel.find('.effect-holder'); // Main Content
+
+    this.$Content = this.$DoubleChannel.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9528,11 +10068,57 @@ function () {
 
   _createClass(DoubleChannel, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-double-channel-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect, this.$Content_Elements, this.$FeatureList], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.DoubleChannel = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.DoubleChannel.add('anim-start'); // Effect
+
+      this.DoubleChannel.fromTo(this.$Effect, 0.65, {
+        alpha: 0,
+        y: -this.DISTANCE * 0.025
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      });
+      this.DoubleChannel.add('background-show'); // Content
+
+      this.DoubleChannel.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.4');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.DoubleChannel.play();
+    }
   }]);
 
   return DoubleChannel;
@@ -9567,7 +10153,25 @@ function () {
   function BassBoost() {
     _classCallCheck(this, BassBoost);
 
-    // Bind Event
+    // Variables
+    this.$BassBoostSection = $('#section-bass-boost'); // TOP SECTION
+
+    this.$TopSection = this.$BassBoostSection.find('.top-group'); // Top Effect
+
+    this.$Top_Effect = this.$TopSection.find('.effect-holder');
+    this.$Top_Effect_Bg = this.$Top_Effect.find('.background-layer');
+    this.$Top_Effect_MainImage = this.$Top_Effect.find('.main-earbuds-img'); // Top Content
+
+    this.$Top_Content = this.$TopSection.find('.main-content');
+    this.$Top_Content_Elements = this.$Top_Content.find('> *'); // BOTTOM SECTION
+
+    this.$BottomSection = this.$BassBoostSection.find('.bottom-group'); // Effect
+
+    this.$Bottom_Chart = this.$BottomSection.find('.bass-boost-chart-img'); // Content
+
+    this.$Bottom_Content = this.$BottomSection.find('.main-content');
+    this.$Bottom_Content_Elements = this.$Bottom_Content.find('> *'); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9577,11 +10181,99 @@ function () {
 
   _createClass(BassBoost, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-bass-boost-top-anim', function () {
+        _this.DoAnimationTop();
+      });
+      realmeAirBudsProListener.on('section-bass-boost-bottom-anim', function () {
+        _this.DoAnimationBottom();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Top_Effect_Bg, this.$Top_Effect_MainImage, this.$Top_Content_Elements, this.$Bottom_Chart, this.$Bottom_Content_Elements], {
+        alpha: 0
+      }); //#region TOP ANIMATION TIMELINE
+      // Timeline Animation Build - TOP SECTION
+
+      this.BassBoostAnimationTop = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.BassBoostAnimationTop.add('anim-start'); // Effect
+
+      this.BassBoostAnimationTop.fromTo(this.$Top_Effect_Bg, 1, {
+        alpha: 0,
+        scaleX: 0
+      }, {
+        alpha: 1,
+        scaleX: 1,
+        easing: Power3.easeOut
+      });
+      this.BassBoostAnimationTop.fromTo(this.$Top_Effect_MainImage, 0.5, {
+        alpha: 0,
+        y: this.DISTANCE * 0.025
+      }, {
+        alpha: 1,
+        y: 1,
+        easing: Power3.easeOut
+      }, '-=0.3');
+      this.BassBoostAnimationTop.add('background-show'); // Content
+
+      this.BassBoostAnimationTop.staggerFromTo(this.$Top_Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.25'); //#endregion
+      // #region BOTTOM ANIMATION TIMELINE
+      // Timeline Animation Build - BOTTOM SECTION
+
+      this.BassBoostAnimationBottom = new TimelineMax({
+        paused: true
+      }); // Start
+
+      this.BassBoostAnimationBottom.add('start');
+      this.BassBoostAnimationBottom.fromTo(this.$Bottom_Chart, 0.65, {
+        alpha: 0,
+        y: this.DISTANCE * 0.025
+      }, {
+        alpha: 1,
+        y: 1,
+        easing: Power3.easeOut
+      }, '-=0.3');
+      this.BassBoostAnimationTop.add('background-show');
+      this.BassBoostAnimationBottom.staggerFromTo(this.$Bottom_Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show-=0.15'); // #endregion
+    }
+  }, {
+    key: "DoAnimationTop",
+    value: function DoAnimationTop() {
+      this.BassBoostAnimationTop.play();
+    }
+  }, {
+    key: "DoAnimationBottom",
+    value: function DoAnimationBottom() {
+      this.BassBoostAnimationBottom.play();
+    }
   }]);
 
   return BassBoost;
@@ -9616,7 +10308,22 @@ function () {
   function Design() {
     _classCallCheck(this, Design);
 
-    // Bind Event
+    // Variables
+    this.$DesignSection = $('#section-design'); // Effect
+
+    this.$Effect = this.$DesignSection.find('.effect-holder'); // Slogan
+
+    this.$Effect_Slogan = this.$Effect.find('.slogan-holder');
+    this.$Effect_Slogan_Line1 = this.$Effect.find('.slogan-line-1');
+    this.$Effect_Slogan_Line2 = this.$Effect.find('.slogan-line-2'); // Case
+
+    this.$Effect_Earbuds = this.$Effect.find('.earbuds-holder');
+    this.$Effect_Earbuds_MainImg = this.$Effect_Earbuds.find('.main-image');
+    this.$Effect_Earbuds_ShadowImg = this.$Effect_Earbuds.find('.shadow-image'); // Main Content
+
+    this.$Content = this.$DesignSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9626,11 +10333,83 @@ function () {
 
   _createClass(Design, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-design-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect_Slogan_Line1, this.$Effect_Slogan_Line2, this.$Effect_Earbuds_MainImg, this.$Effect_Earbuds_ShadowImg, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.DesignAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.DesignAnimation.add('anim-start'); // Effect Text
+
+      this.DesignAnimation.fromTo(this.$Effect_Slogan_Line1, 0.7, {
+        alpha: 0,
+        x: -this.DISTANCE * 0.25
+      }, {
+        x: 0,
+        alpha: 1,
+        easing: Power4.easeOut
+      }, 'anim-start');
+      this.DesignAnimation.fromTo(this.$Effect_Slogan_Line2, 0.7, {
+        alpha: 0,
+        x: this.DISTANCE * 0.25
+      }, {
+        x: 0,
+        alpha: 1,
+        easing: Power4.easeOut
+      }, 'anim-start');
+      this.DesignAnimation.add('text-show'); // Effect Image
+
+      this.DesignAnimation.fromTo(this.$Effect_Earbuds_MainImg, 0.45, {
+        alpha: 0,
+        y: -this.DISTANCE * 0.025
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power4.easeOut
+      }, 'text-show');
+      this.DesignAnimation.fromTo(this.$Effect_Earbuds_ShadowImg, 0.45, {
+        alpha: 0,
+        y: this.DISTANCE * 0.025
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power4.easeOut
+      }, 'text-show');
+      this.DesignAnimation.add('effect-end'); // Content
+
+      this.DesignAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'effect-end-=0.25');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.DesignAnimation.play();
+    }
   }]);
 
   return Design;
@@ -9665,7 +10444,16 @@ function () {
   function LightWeight() {
     _classCallCheck(this, LightWeight);
 
-    // Bind Event
+    // Variables
+    this.$LightWeightSection = $('#section-light-weight'); // Background
+
+    this.$Background = this.$LightWeightSection.find('.bg-holder'); // Effect
+
+    this.$Effect = this.$LightWeightSection.find('.effect-holder'); // Main Content
+
+    this.$Content = this.$LightWeightSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9675,11 +10463,71 @@ function () {
 
   _createClass(LightWeight, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-light-weight-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      var _this2 = this;
+
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Background, this.$Effect, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.LightWeightAnimation = new TimelineMax({
+        paused: true,
+        onComplete: function onComplete() {
+          _this2.$Background.addClass('is-active');
+        }
+      }); // Anim Start
+
+      this.LightWeightAnimation.add('anim-start'); // Background
+
+      this.LightWeightAnimation.fromTo(this.$Background, 0.5, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.LightWeightAnimation.add('background-show'); // Effect
+
+      this.LightWeightAnimation.fromTo(this.$Effect, 0.5, {
+        alpha: 0,
+        y: this.DISTANCE * 0.015
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'background-show-=0.2'); // Content
+
+      this.LightWeightAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'background-show');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.LightWeightAnimation.play();
+    }
   }]);
 
   return LightWeight;
@@ -9714,7 +10562,22 @@ function () {
   function FastPairing() {
     _classCallCheck(this, FastPairing);
 
-    // Bind Event
+    // Variables
+    this.$FastPairingSection = $('#section-fast-pairing'); // Effect
+
+    this.$Effect = this.$FastPairingSection.find('.effect-holder'); // Phone Image
+
+    this.$Effect_Phone = this.$Effect.find('.phone-image');
+    this.$Effect_Phone_MainImg = this.$Effect_Phone.find('.main-phone');
+    this.$Effect_Phone_ShadowImg = this.$Effect_Phone.find('.shadow-phone'); // EarBuds Image
+
+    this.$Effect_Earbuds = this.$Effect.find('.earbud-image');
+    this.$Effect_Earbuds_MainImg = this.$Effect_Earbuds.find('.main-earbud');
+    this.$Effect_Earbuds_ShadowImg = this.$Effect_Earbuds.find('.shadow-earbud'); // Main Content
+
+    this.$Content = this.$FastPairingSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9724,11 +10587,82 @@ function () {
 
   _createClass(FastPairing, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-fast-pairing-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect_Phone_MainImg, this.$Effect_Phone_ShadowImg, this.$Effect_Earbuds_MainImg, this.$Effect_Earbuds_ShadowImg, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.FastPairingAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.FastPairingAnimation.add('anim-start'); // Phone Image Effect
+
+      this.FastPairingAnimation.fromTo(this.$Effect_Phone_MainImg, 0.75, {
+        alpha: 0,
+        y: -this.DISTANCE * 0.015
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'anim-start');
+      this.FastPairingAnimation.fromTo(this.$Effect_Phone_ShadowImg, 0.75, {
+        alpha: 0,
+        y: this.DISTANCE * 0.015
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'anim-start'); // Earbud Effect
+
+      this.FastPairingAnimation.fromTo(this.$Effect_Earbuds_MainImg, 0.75, {
+        alpha: 0,
+        y: -this.DISTANCE * 0.015
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'anim-start+=0.25');
+      this.FastPairingAnimation.fromTo(this.$Effect_Earbuds_ShadowImg, 0.75, {
+        alpha: 0,
+        y: this.DISTANCE * 0.015
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'anim-start+=0.25');
+      this.FastPairingAnimation.add('effect-end'); // Content
+
+      this.FastPairingAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'effect-end-=0.45');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.FastPairingAnimation.play();
+    }
   }]);
 
   return FastPairing;
@@ -9763,7 +10697,17 @@ function () {
   function SmartSensor() {
     _classCallCheck(this, SmartSensor);
 
-    // Bind Event
+    // Variables
+    this.$SmartSensorSection = $('#section-smart-sensor'); // Effect
+
+    this.$Effect = this.$SmartSensorSection.find('.effect-holder'); // Content Background
+
+    this.$Effect_ContentBg = this.$Effect.find('.content-bg');
+    this.$Effect_MainImg = this.$Effect.find('.featured-image'); // Main Content
+
+    this.$Content = this.$SmartSensorSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9773,11 +10717,63 @@ function () {
 
   _createClass(SmartSensor, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-smart-sensor-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect_ContentBg, this.$Effect_MainImg, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.SmartSensorAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.SmartSensorAnimation.add('anim-start'); // Background
+
+      this.SmartSensorAnimation.fromTo(this.$Effect_MainImg, 0.75, {
+        x: this.DISTANCE * 0.1,
+        alpha: 0
+      }, {
+        x: 0,
+        alpha: 1
+      }, 'anim-start');
+      this.SmartSensorAnimation.fromTo(this.$Effect_ContentBg, 0.75, {
+        x: -this.DISTANCE * 0.3,
+        alpha: 0
+      }, {
+        x: 0,
+        alpha: 1
+      }, 'anim-start+=0.1');
+      this.SmartSensorAnimation.add('effect-end'); // Content
+
+      this.SmartSensorAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'effect-end-=0.2');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.SmartSensorAnimation.play();
+    }
   }]);
 
   return SmartSensor;
@@ -9812,7 +10808,18 @@ function () {
   function SmartAssistant() {
     _classCallCheck(this, SmartAssistant);
 
-    // Bind Event
+    // Variables
+    this.$SmartAssistantSection = $('#section-smart-assistant'); // Effect
+
+    this.$Effect = this.$SmartAssistantSection.find('.effect-holder'); // Google Assitant Image
+
+    this.$Effect_GGAssistant = this.$Effect.find('.google-assistant-img'); // Background
+
+    this.$Background = this.$SmartAssistantSection.find('.bg-holder'); // Main Content
+
+    this.$Content = this.$SmartAssistantSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9822,11 +10829,68 @@ function () {
 
   _createClass(SmartAssistant, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-smart-assistant-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect_GGAssistant, this.$Background, this.$Content_Elements], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.SmartSensorAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.SmartSensorAnimation.add('anim-start'); // Background
+
+      this.SmartSensorAnimation.fromTo(this.$Background, 0.75, {
+        alpha: 0,
+        scale: 1.175
+      }, {
+        alpha: 1,
+        scale: 1,
+        easing: Power3.easeOut
+      });
+      this.SmartSensorAnimation.add('background-show'); // Effect
+
+      this.SmartSensorAnimation.fromTo(this.$Effect_GGAssistant, 0.5, {
+        x: this.DISTANCE * 0.1,
+        alpha: 0,
+        scale: 0.5
+      }, {
+        x: 0,
+        alpha: 1,
+        scale: 1
+      }, 'background-show');
+      this.SmartSensorAnimation.add('effect-end'); // Content
+
+      this.SmartSensorAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.075, 'effect-end+=0.15');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.SmartSensorAnimation.play();
+    }
   }]);
 
   return SmartAssistant;
@@ -9861,7 +10925,16 @@ function () {
   function WaterResistant() {
     _classCallCheck(this, WaterResistant);
 
-    // Bind Event
+    // Variables
+    this.$WaterResistantSection = $('#section-water-resistant'); // Effect
+
+    this.$Effect = this.$WaterResistantSection.find('.effect-holder'); // Main Content
+
+    this.$Content = this.$WaterResistantSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Feature List
+
+    this.$FeatureList = this.$WaterResistantSection.find('.durability-list'); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9871,11 +10944,66 @@ function () {
 
   _createClass(WaterResistant, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-water-resistant-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect, this.$Content_Elements, this.$FeatureList], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.WaterResistantAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.WaterResistantAnimation.add('anim-start'); // Effect
+
+      this.WaterResistantAnimation.fromTo(this.$Effect, 0.5, {
+        alpha: 0,
+        y: this.DISTANCE * 0.025
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'aim-start+=0.5');
+      this.WaterResistantAnimation.add('background-show'); // Content
+
+      this.WaterResistantAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.3, 'anim-start'); // Feature List
+
+      this.WaterResistantAnimation.fromTo(this.$FeatureList, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 'aim-start+=0.8');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.WaterResistantAnimation.play();
+    }
   }]);
 
   return WaterResistant;
@@ -9910,7 +11038,18 @@ function () {
   function RealmeLink() {
     _classCallCheck(this, RealmeLink);
 
-    // Bind Event
+    // Variables
+    this.$WaterResistantSection = $('#section-realme-link'); // Effect
+
+    this.$Effect = this.$WaterResistantSection.find('.effect-holder');
+    this.$Effect_ContentBg = this.$Effect.find('.content-bg');
+    this.$Effect_PhoneImage = this.$Effect.find('.phone-image'); // Main Content
+
+    this.$Content = this.$WaterResistantSection.find('.main-content');
+    this.$Content_Elements = this.$Content.find("> *"); // Feature List
+
+    this.$realmeLinkDetail = this.$WaterResistantSection.find('.realmelink-detail'); // Bind Event
+
     this.bindEvents();
   }
   /* ===================================
@@ -9920,11 +11059,76 @@ function () {
 
   _createClass(RealmeLink, [{
     key: "bindEvents",
-    value: function bindEvents() {}
+    value: function bindEvents() {
+      var _this = this;
+
+      this.InitSection();
+      realmeAirBudsProListener.on('section-realme-link-anim', function () {
+        _this.DoAnimation();
+      });
+    }
     /* ===================================
      *  METHODS
      * =================================== */
 
+  }, {
+    key: "InitSection",
+    value: function InitSection() {
+      this.DISTANCE = IS_MOBILE ? window.innerHeight : window.innerWidth; // Init State
+
+      TweenMax.set([this.$Effect_ContentBg, this.$Effect_PhoneImage, this.$Content_Elements, this.$realmeLinkDetail], {
+        alpha: 0
+      }); // Timeline Animation Build
+
+      this.realmeLinkAnimation = new TimelineMax({
+        paused: true
+      }); // Anim Start
+
+      this.realmeLinkAnimation.add('anim-start'); // Effect
+
+      this.realmeLinkAnimation.fromTo(this.$Effect_ContentBg, 0.75, {
+        alpha: 0,
+        scaleY: 0.25,
+        transformOrigin: '0% 100%'
+      }, {
+        alpha: 1,
+        scaleY: 1,
+        transformOrigin: '0% 100%',
+        easing: Power3.easeOut
+      }, 'anim-start');
+      this.realmeLinkAnimation.fromTo(this.$Effect_PhoneImage, 0.75, {
+        alpha: 0,
+        y: -this.DISTANCE * 0.05
+      }, {
+        alpha: 1,
+        y: 0,
+        easing: Power3.easeOut
+      }, 'anim-start');
+      this.realmeLinkAnimation.add('effect-end'); // Content
+
+      this.realmeLinkAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 0.15, 'effect-end-=0.2'); // Feature List
+
+      this.realmeLinkAnimation.fromTo(this.$realmeLinkDetail, 0.5, {
+        y: this.DISTANCE * 0.015,
+        alpha: 0
+      }, {
+        y: 0,
+        alpha: 1,
+        easing: Power3.easeOut
+      }, 'effect-end+=0.1');
+    }
+  }, {
+    key: "DoAnimation",
+    value: function DoAnimation() {
+      this.realmeLinkAnimation.play();
+    }
   }]);
 
   return RealmeLink;

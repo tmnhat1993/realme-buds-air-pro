@@ -1,9 +1,24 @@
 #realme-air-buds-pro-page {
     #section-realme-s1-chip {
+        background-color: #090909;
+        // Main Content
         .main-content {
             position: absolute;
             top: 36.5%;
             left: 26.5%;
+        }
+        // Background
+        .bg-holder {
+            picture,
+            img {
+                transform-origin: 75% 42.5%;
+            }
+            &.is-active {
+                picture,
+                img {
+                    animation: slowZoom 40s infinite linear;
+                }
+            }
         }
     }
     /* === RESPONSIVE === */
@@ -26,7 +41,6 @@
                 width: 100%;
                 left: 0;
                 top: 12.5%;
-
                 .section-title {
                     margin-bottom: 4vw;
                 }

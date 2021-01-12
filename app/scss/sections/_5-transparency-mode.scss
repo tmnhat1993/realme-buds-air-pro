@@ -1,10 +1,25 @@
 #realme-air-buds-pro-page {
     // TRANSPARENCY MODE SECTION
     #section-transparency-mode {
+        background-color: #090909;
+        // Main Content
         .main-content {
             position: absolute;
             top: 34%;
             left: 26.5%;
+        }
+        // Background
+        .bg-holder {
+            picture,
+            img {
+                transform-origin: 75% 50%;
+            }
+            &.is-active {
+                picture,
+                img {
+                    animation: slowZoom 40s infinite linear;
+                }
+            }
         }
     }
     /* === RESPONSIVE === */
@@ -26,5 +41,15 @@
                 padding: 0 6.65vw;
             }
         }
+    }
+}
+
+@keyframes slowZoom {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.075);
     }
 }

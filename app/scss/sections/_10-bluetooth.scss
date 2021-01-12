@@ -2,7 +2,6 @@
     // BLUETOOTH SECTION
     #section-bluetooth {
         background-color: #090909;
-
         // Main Content
         .main-content {
             position: absolute;
@@ -31,15 +30,41 @@
             }
             .decor-holder {
                 z-index: 1;
-                width: 25%;
-                left: 50%;
-                top: 15%;
+                width: 14%;
+                left: 54.7%;
+                top: 33%;
+                img {
+                    opacity: 0;
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
             }
             .circle-img-holder {
                 z-index: 2;
                 width: 19%;
                 left: 52%;
                 top: 25.8%;
+                animation: rotating 4s infinite linear;
+            }
+            &.is-active {
+                .decor-holder {
+                    img {
+                        -webkit-animation: waveEffect 3s linear infinite;
+                        animation: waveEffect 3s linear infinite;
+                        &:nth-child(2) {
+                            -webkit-animation: waveEffect 3s 1s linear infinite;
+                            animation: waveEffect 3s 1s linear infinite;
+                        }
+                        &:nth-child(3) {
+                            -webkit-animation: waveEffect 3s 2s linear infinite;
+                            animation: waveEffect 3s 2s linear infinite;
+                        }
+                    }
+                }
             }
         }
     }
@@ -84,5 +109,61 @@
                 }
             }
         }
+    }
+}
+
+@keyframes waveEffect {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.25;
+        -webkit-transform: scale(1.35);
+        transform: scale(1.35);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+@-webkit-keyframes waveEffect {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.25;
+        -webkit-transform: scale(1.35);
+        transform: scale(1.35);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+@-webkit-keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
