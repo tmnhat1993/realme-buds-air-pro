@@ -45,6 +45,13 @@
                     margin-bottom: 4vw;
                 }
             }
+            // Background
+            .bg-holder {
+                picture,
+                img {
+                    transform-origin: 50% 75%;
+                }
+            }
         }
     }
 }

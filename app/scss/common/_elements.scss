@@ -90,6 +90,7 @@
     /* === MOBILE === */
     // 768px down to 480px
     @media #{$information-tablet} {
+        padding-top: 80px;
         .section {
             // Main Content
             .main-content {
@@ -154,25 +155,25 @@
             // Main Content
             .main-content {
                 .section-title {
-                    font-size: 23px;
+                    font-size: 21px;
                     line-height: 1.4;
                     margin-bottom: 3vw;
                     &.sm {
-                        font-size: 23px;
+                        font-size: 21px;
                     }
                     &.x-sm {
-                        font-size: 20px;
+                        font-size: 18px;
                     }
                 }
                 .section-sub-title {
-                    font-size: 23px;
+                    font-size: 21px;
                     margin-bottom: 6vw;
                     &.sm {
-                        font-size: 23px;
+                        font-size: 21px;
                     }
                 }
                 .section-desc {
-                    font-size: 12px;
+                    font-size: 11px;
                     line-height: 1.65;
                 }
             }

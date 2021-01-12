@@ -7692,7 +7692,7 @@ function () {
 
     window.TweenMax = _gsap.TweenMax; // Ipad devices and below
 
-    window.IS_MOBILE = window.innerWidth >= 768 ? false : true;
+    window.IS_MOBILE = window.innerWidth > 768 ? false : true;
     $(window).on("resize", function () {
       window.IS_MOBILE = window.innerWidth >= 768 ? false : true;
     }); // Common Behavior
@@ -7719,9 +7719,9 @@ function () {
       smartAssistant: new _17SmartAssistant.default(),
       waterResistant: new _18WaterResistant.default(),
       realmeLink: new _19RealmeLink.default(),
-      specs: new _20Specs.default() // Bind Event
+      specs: new _20Specs.default()
+    }; // Bind Event
 
-    };
     this.bindEvents();
   }
   /* ===================================
@@ -10698,14 +10698,14 @@ function () {
     _classCallCheck(this, SmartSensor);
 
     // Variables
-    this.$SmartSensorSection = $('#section-smart-sensor'); // Effect
+    this.$SmartSensorSection = $("#section-smart-sensor"); // Effect
 
-    this.$Effect = this.$SmartSensorSection.find('.effect-holder'); // Content Background
+    this.$Effect = this.$SmartSensorSection.find(".effect-holder"); // Content Background
 
-    this.$Effect_ContentBg = this.$Effect.find('.content-bg');
-    this.$Effect_MainImg = this.$Effect.find('.featured-image'); // Main Content
+    this.$Effect_ContentBg = this.$Effect.find(".content-bg");
+    this.$Effect_MainImg = this.$Effect.find(".featured-image"); // Main Content
 
-    this.$Content = this.$SmartSensorSection.find('.main-content');
+    this.$Content = this.$SmartSensorSection.find(".main-content");
     this.$Content_Elements = this.$Content.find("> *"); // Bind Event
 
     this.bindEvents();
@@ -10721,7 +10721,7 @@ function () {
       var _this = this;
 
       this.InitSection();
-      realmeAirBudsProListener.on('section-smart-sensor-anim', function () {
+      realmeAirBudsProListener.on("section-smart-sensor-anim", function () {
         _this.DoAnimation();
       });
     }
@@ -10742,23 +10742,42 @@ function () {
         paused: true
       }); // Anim Start
 
-      this.SmartSensorAnimation.add('anim-start'); // Background
+      this.SmartSensorAnimation.add("anim-start"); // Background
 
-      this.SmartSensorAnimation.fromTo(this.$Effect_MainImg, 0.75, {
-        x: this.DISTANCE * 0.1,
-        alpha: 0
-      }, {
-        x: 0,
-        alpha: 1
-      }, 'anim-start');
-      this.SmartSensorAnimation.fromTo(this.$Effect_ContentBg, 0.75, {
-        x: -this.DISTANCE * 0.3,
-        alpha: 0
-      }, {
-        x: 0,
-        alpha: 1
-      }, 'anim-start+=0.1');
-      this.SmartSensorAnimation.add('effect-end'); // Content
+      if (!IS_MOBILE) {
+        this.SmartSensorAnimation.fromTo(this.$Effect_ContentBg, 0.75, {
+          x: -this.DISTANCE * 0.3,
+          alpha: 0
+        }, {
+          x: 0,
+          alpha: 1
+        }, "anim-start+=0.1");
+        this.SmartSensorAnimation.fromTo(this.$Effect_MainImg, 0.75, {
+          x: this.DISTANCE * 0.1,
+          alpha: 0
+        }, {
+          x: 0,
+          alpha: 1
+        }, "anim-start");
+      } else {
+        this.SmartSensorAnimation.fromTo(this.$Effect_ContentBg, 0.75, {
+          scaleY: 0.25,
+          alpha: 0,
+          transformOrigin: "50% 100%"
+        }, {
+          scaleY: 1,
+          alpha: 1
+        }, "anim-start+=0.1");
+        this.SmartSensorAnimation.fromTo(this.$Effect_MainImg, 0.75, {
+          y: -this.DISTANCE * 0.1,
+          alpha: 0
+        }, {
+          y: 0,
+          alpha: 1
+        }, "anim-start");
+      }
+
+      this.SmartSensorAnimation.add("effect-end"); // Content
 
       this.SmartSensorAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
         y: this.DISTANCE * 0.015,
@@ -10767,7 +10786,7 @@ function () {
         y: 0,
         alpha: 1,
         easing: Power3.easeOut
-      }, 0.075, 'effect-end-=0.2');
+      }, 0.075, "effect-end-=0.2");
     }
   }, {
     key: "DoAnimation",
@@ -10809,15 +10828,15 @@ function () {
     _classCallCheck(this, SmartAssistant);
 
     // Variables
-    this.$SmartAssistantSection = $('#section-smart-assistant'); // Effect
+    this.$SmartAssistantSection = $("#section-smart-assistant"); // Effect
 
-    this.$Effect = this.$SmartAssistantSection.find('.effect-holder'); // Google Assitant Image
+    this.$Effect = this.$SmartAssistantSection.find(".effect-holder"); // Google Assitant Image
 
-    this.$Effect_GGAssistant = this.$Effect.find('.google-assistant-img'); // Background
+    this.$Effect_GGAssistant = this.$Effect.find(".google-assistant-img"); // Background
 
-    this.$Background = this.$SmartAssistantSection.find('.bg-holder'); // Main Content
+    this.$Background = this.$SmartAssistantSection.find(".bg-holder"); // Main Content
 
-    this.$Content = this.$SmartAssistantSection.find('.main-content');
+    this.$Content = this.$SmartAssistantSection.find(".main-content");
     this.$Content_Elements = this.$Content.find("> *"); // Bind Event
 
     this.bindEvents();
@@ -10833,7 +10852,7 @@ function () {
       var _this = this;
 
       this.InitSection();
-      realmeAirBudsProListener.on('section-smart-assistant-anim', function () {
+      realmeAirBudsProListener.on("section-smart-assistant-anim", function () {
         _this.DoAnimation();
       });
     }
@@ -10854,7 +10873,7 @@ function () {
         paused: true
       }); // Anim Start
 
-      this.SmartSensorAnimation.add('anim-start'); // Background
+      this.SmartSensorAnimation.add("anim-start"); // Background
 
       this.SmartSensorAnimation.fromTo(this.$Background, 0.75, {
         alpha: 0,
@@ -10864,18 +10883,31 @@ function () {
         scale: 1,
         easing: Power3.easeOut
       });
-      this.SmartSensorAnimation.add('background-show'); // Effect
+      this.SmartSensorAnimation.add("background-show"); // Effect
 
-      this.SmartSensorAnimation.fromTo(this.$Effect_GGAssistant, 0.5, {
-        x: this.DISTANCE * 0.1,
-        alpha: 0,
-        scale: 0.5
-      }, {
-        x: 0,
-        alpha: 1,
-        scale: 1
-      }, 'background-show');
-      this.SmartSensorAnimation.add('effect-end'); // Content
+      if (!IS_MOBILE) {
+        this.SmartSensorAnimation.fromTo(this.$Effect_GGAssistant, 0.5, {
+          x: this.DISTANCE * 0.1,
+          alpha: 0,
+          scale: 0.5
+        }, {
+          x: 0,
+          alpha: 1,
+          scale: 1
+        }, "background-show");
+      } else {
+        this.SmartSensorAnimation.fromTo(this.$Effect_GGAssistant, 0.5, {
+          y: this.DISTANCE * 0.2,
+          alpha: 0,
+          scale: 0.3
+        }, {
+          y: 0,
+          alpha: 1,
+          scale: 1
+        }, "background-show");
+      }
+
+      this.SmartSensorAnimation.add("effect-end"); // Content
 
       this.SmartSensorAnimation.staggerFromTo(this.$Content_Elements, 0.5, {
         y: this.DISTANCE * 0.015,
@@ -10884,7 +10916,7 @@ function () {
         y: 0,
         alpha: 1,
         easing: Power3.easeOut
-      }, 0.075, 'effect-end+=0.15');
+      }, 0.075, "effect-end+=0.15");
     }
   }, {
     key: "DoAnimation",

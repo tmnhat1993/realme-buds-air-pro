@@ -40,6 +40,13 @@
                 left: 0;
                 padding: 0 6.65vw;
             }
+            // Background
+            .bg-holder {
+                picture,
+                img {
+                    transform-origin: 50% 70%;
+                }
+            }
         }
     }
 }

@@ -45,7 +45,7 @@
                             picture {
                                 -webkit-transform: scale(1.1);
                                 transform: scale(1.1);
-                                transition: all cubic-bezier(.27, .85, .65, .99) 1200ms;
+                                transition: all cubic-bezier(0.27, 0.85, 0.65, 0.99) 1200ms;
                             }
                         }
                     }
@@ -196,8 +196,8 @@
                     // Common Elements
                     .feature-item {
                         .feature-content {
-                            font-size: 12px;
-                            padding: 10px;
+                            font-size: 11px;
+                            padding: 9px;
                         }
                     }
                 }
@@ -214,8 +214,8 @@
                     // Common Elements
                     .feature-item {
                         .feature-content {
-                            font-size: 10px;
-                            padding: 8px;
+                            font-size: 8px;
+                            padding: 7px;
                         }
                     }
                 }
